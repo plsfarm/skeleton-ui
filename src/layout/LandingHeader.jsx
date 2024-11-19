@@ -118,9 +118,17 @@ const LandingHeaderTomb = () => {
                   Earn <DownOutlined className="size-3" />
                 </HoverCardTrigger>
                 <HoverCardContent className="rounded-xl w-[500px] dark:!bg-dark !py-5 !px-5">
-                  <div className="flex gap-2">
+                <div className="flex gap-2">
                     <div className="w-[200px] flex flex-col justify-center">
-
+                 
+                      <div className="flex items-center gap-2 relative">
+             
+                    <div className=" top-0 text-xs mb-2">Coming soon</div>
+                      <div className="flex items-center gap-2 relative">
+                        <img src="/skull-tomb.png" className="w-14 dark:block hidden" alt="" />
+                        <img src="/skull-tomb-black.png" className="w-14 dark:hidden block" alt="" />
+                    <div>
+                    </div></div>  </div>
                       {/* <div>
                         <Link to="/farming" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
@@ -155,6 +163,7 @@ const LandingHeaderTomb = () => {
                           </div>
                         </Link>
                       </div> */}
+                          
                       <div>
                         <Link to="/skeleton-tomb" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
@@ -165,6 +174,7 @@ const LandingHeaderTomb = () => {
                         </Link>
                       </div>
                     </div>
+              
                     <div className="bg-gray-300 dark:bg-[#15151a] w-[300px] rounded p-4">
                       <div className="text-lg dark:text-white text-black">Socials</div>
                       <div className="grid grid-cols-2 gap-2 mt-3">
