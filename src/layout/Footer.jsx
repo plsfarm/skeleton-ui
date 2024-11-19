@@ -11,34 +11,35 @@ const earnSkeletonItems = [{
     title: 'Skeleton Tomb',
     link: '/skeleton-tomb'
 },
-{
-    title: 'Skeleton Farm',
-    link: '/skeleton-farm'
-},
+// {
+//     title: 'Skeleton Farm',
+//     link: '/skeleton-farm'
+// },
 {
     title: 'Skeleton Board',
     link: '/skeleton-board'
-},
-{
-    title: 'Liquidty',
-    link: '/liquidity'
 }
+// ,
+// {
+//     title: 'Liquidty',
+//     link: '/liquidity'
+// }
 
 ]
 
 const earnItems = [
-    {
-        title: 'Farm',
-        link: '/farming'
-    },
-    {
-        title: 'Staking',
-        link: '/staking'
-    },
-    {
-        title: 'Liquidity',
-        link: '/liquidity'
-    },
+    // {
+    //     title: 'Farm',
+    //     link: '/farming'
+    // },
+    // {
+    //     title: 'Staking',
+    //     link: '/staking'
+    // },
+    // {
+    //     title: 'Liquidity',
+    //     link: '/liquidity'
+    // },
     {
         title: 'Skeleton Tomb',
         link: '/skeleton-tomb'

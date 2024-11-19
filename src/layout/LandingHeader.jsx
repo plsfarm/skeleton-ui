@@ -121,7 +121,7 @@ const LandingHeaderTomb = () => {
                   <div className="flex gap-2">
                     <div className="w-[200px] flex flex-col justify-center">
 
-                      <div>
+                      {/* <div>
                         <Link to="/farming" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
@@ -129,24 +129,24 @@ const LandingHeaderTomb = () => {
                             Farm
                           </div>
                         </Link>
-                      </div>
-                      <div>
+                      </div> */}
+                      {/* <div>
                         <Link to="/staking" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             <Layers />
                             Staking
                           </div>
                         </Link>
-                      </div>
-                      <div>
+                      </div> */}
+                      {/* <div>
                         <Link to="/liquidity" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             <Milk />
                             Liquidity
                           </div>
                         </Link>
-                      </div>
-                      <div>
+                      </div> */}
+                      {/* <div>
                         <Link to="/" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
@@ -154,7 +154,7 @@ const LandingHeaderTomb = () => {
                             Bridge
                           </div>
                         </Link>
-                      </div>
+                      </div> */}
                       <div>
                         <Link to="/skeleton-tomb" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">

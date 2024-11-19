@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Landing from "./pages/dapp/Index";
 import Farms from "./pages/dapp/farms/Index";
+
 import Staking from "./pages/dapp/staking/Index";
 import Presale from "./pages/presale/presale";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -13,11 +14,11 @@ import SkeletonLiquidity from "./pages/skeletonLiquidity/SkeletonLiquidity";
 
 const App = () => {
 
+
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Routes>
-        {/* Make the Presale page the default route */}
-        <Route element={<Presale />} index />
+        <Route element={<Landing />} index />
         <Route element={<Farms />} path="farming" />
         <Route element={<Staking />} path="staking" />
         <Route element={<Presale />} path="presale" />

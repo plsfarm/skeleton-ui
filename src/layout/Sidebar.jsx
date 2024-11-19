@@ -157,7 +157,7 @@ const Sidebar = ({ setSidebarToggle, sidebarToggle }) => {
       }
       <div className="mt-4 flex w-full flex-col items-start justify-center  pt-3">
 
-        <Link
+        {/* <Link
           onClick={() => setSidebarToggle(false)}
           to="/farming"
           className={`flex text-white min-h-[48px] w-full items-center justify-start gap-4 px-5 py-2 transition-all duration-500 hover:bg-gray-400 hover:bg-opacity-[0.1] hover:pl-6 ${pathname === "/farming" &&
@@ -169,8 +169,8 @@ const Sidebar = ({ setSidebarToggle, sidebarToggle }) => {
             !isCollapsed && <p className="text-base font-medium text-white">Farms</p>
           }
 
-        </Link>
-        <Link
+        </Link> */}
+        {/* <Link
           onClick={() => setSidebarToggle(false)}
           to="/staking"
           className={`flex text-white min-h-[48px] w-full items-center justify-start gap-4 px-5 py-2 transition-all duration-500 hover:bg-gray-400 hover:bg-opacity-[0.1] hover:pl-6 ${pathname === "/staking" &&
@@ -182,7 +182,7 @@ const Sidebar = ({ setSidebarToggle, sidebarToggle }) => {
             !isCollapsed && <p className="text-base font-medium text-white">Staking</p>
           }
 
-        </Link>
+        </Link> */}
 
 
 
