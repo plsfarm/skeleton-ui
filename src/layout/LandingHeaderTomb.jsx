@@ -140,7 +140,7 @@ const LandingHeaderTomb = () => {
                           </div>
                         </Link>
                       </div>
-                      <div>
+                      {/* <div>
                         <Link to="/skeleton-farm" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
@@ -148,8 +148,8 @@ const LandingHeaderTomb = () => {
                             Skeleton Farm
                           </div>
                         </Link>
-                      </div>
-                      <div>
+                      </div> */}
+                      {/* <div>
                         <Link to="/skeleton-board" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
@@ -157,8 +157,8 @@ const LandingHeaderTomb = () => {
                             Skeleton Board
                           </div>
                         </Link>
-                      </div>
-                      <div>
+                      </div> */}
+                      {/* <div>
                         <Link to="/skeleton-liquidity" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
@@ -166,7 +166,7 @@ const LandingHeaderTomb = () => {
                             Liquidity
                           </div>
                         </Link>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="bg-gray-300 dark:bg-[#15151a] w-[300px] rounded p-4">
                       <div className="text-lg dark:text-white text-black">Socials</div>
