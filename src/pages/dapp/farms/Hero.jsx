@@ -23,7 +23,7 @@ const Hero = () => {
           </>
         }
 
-        {/*   <video
+          <video
           src="/farming_mobile.mp4"
           className="h-[450px] w-full rounded-xl object-cover md:hidden"
           loop
@@ -38,7 +38,7 @@ const Hero = () => {
           autoPlay
           muted
           playsInline
-        ></video> */}
+        ></video>
       </div>
     </div>
   );

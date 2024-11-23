@@ -23,7 +23,7 @@ const Hero = () => {
               <img src="/staking-banner-mbl.png" className="h-[300px] w-full lg:hidden  rounded-xl object-cover object-right" />
             </>
         }
-        {/*   <video
+          <video
           src="/farming_mobile.mp4"
           className="h-[450px] w-full rounded-xl object-cover md:hidden"
           loop
@@ -38,7 +38,7 @@ const Hero = () => {
           autoPlay
           muted
           playsInline
-        ></video> */}
+        ></video>
       </div>
     </div>
   );

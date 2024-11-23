@@ -204,7 +204,7 @@ const LandingHeaderTomb = () => {
                   </div>
                 </HoverCardContent>
               </HoverCard>
-              {/* <Popover>
+              <Popover>
                 <PopoverTrigger className="text-black dark:text-white font-medium flex items-center gap-2">Earn <DownOutlined className="size-3" /></PopoverTrigger>
                 <PopoverContent className="w-[200px]">
                   <div className="">
@@ -231,8 +231,8 @@ const LandingHeaderTomb = () => {
 
                   </div>
                 </PopoverContent>
-              </Popover> */}
-              {/*  <Link
+              </Popover>
+               <Link
               onClick={() => setHeaderToggle(false)}
               // to="/dapp"
               to="/farming"
@@ -247,7 +247,7 @@ const LandingHeaderTomb = () => {
               className={`text-base font-semibold text-black dark:text-white  capitalize hover:underline underline-offset-8`}
             >
               Staking
-            </Link> */}
+            </Link>
 
               {
                 <div className="ml-auto flex gap-2">
