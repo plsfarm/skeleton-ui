@@ -29,27 +29,6 @@ const Home = () => {
 
   return (
     <div className="w-full bg-gray-200  dark:bg-[#161625] pb-10 md:pb-0">
-
-      {/* <div className="py-12 flex justify-center items-center  bg-gray-900 mt-10">
-        <div className="contain mx-auto">
-          <div className="grid grid-cols-6 w-full gap-5">
-            <div className="col-span-2">
-              <div className="rounded-2xl p-10 bg-blue-900 flex justify-center">
-                <Icon />
-              </div>
-            </div>
-            <div className="col-span-4">
-              <div className="rounded-2xl p-10 h-full " style={{ background: 'linear-gradient(285.372deg, rgb(210, 17, 98) 24.91%, rgb(44, 61, 166) 99.66%)' }}>
-                <div className="text-6xl font-bold ">A brave new
-                  world for Yield</div>
-                <div className="text-lg mt-7">Yearn v3 is a new yield paradigm offering better automation,
-                  composability and flexibility. Enjoy!</div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div> */}
       <div className="contain mx-auto relative  text-white mt-10">
         <div className="w-full">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 ">
@@ -65,13 +44,7 @@ const Home = () => {
               <div className="text-4xl">786</div>
               <div className="text-gray-500">Historical APY</div>
             </div>
-
           </div>
-
-          {/*  <div className="grid grid-cols-2 my-10 gap-5">
-            <button className="btn-base !rounded-lg bg-primary px-3 !text-lg !py-3">Claim and Approve</button>
-            <button className="btn-base !rounded-lg bg-green-500 px-3 !text-lg !py-3">Claim Withdrawal </button>
-          </div> */}
         </div>
 
       </div>

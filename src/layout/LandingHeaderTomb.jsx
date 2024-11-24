@@ -1,68 +1,20 @@
-import { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import React from "react";
-import { DownOutlined, GithubOutlined, TwitterOutlined } from "@ant-design/icons";
+import { DownOutlined } from "@ant-design/icons";
 import { Web3Button } from "@web3modal/react";
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "../components/ThemeProvider";
 
-import { Popover, PopoverContent, PopoverTrigger } from "../components/ui/popover";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "../components/ui/hover-card";
-import { Atom, Droplet, Feather, File, Kanban, Layers, Link2, Milk, Tractor } from "lucide-react";
 import { Divider } from "antd";
+import { Atom, Droplet, Feather, File, Kanban } from "lucide-react";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "../components/ui/hover-card";
 
-const items = [
-  {
-    key: "1",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        1st menu item
-      </a>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item
-      </a>
-    ),
-  },
-  {
-    key: "3",
-    label: (
-      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-        3rd menu item
-      </a>
-    ),
-  },
-];
 
 const LandingHeaderTomb = () => {
   const [headerToggle, setHeaderToggle] = useState(false);
   const pathname = useLocation().pathname;
   const themeContext = useTheme();
-  const [isScrollZero, setIsScrollZero] = useState(true);
 
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY === 0) {
-        setIsScrollZero(true);
-      } else {
-        setIsScrollZero(false);
-      }
-    });
-  }, []);
-
-  const onClickWeb3 = () => {
-    const web3Button = document.querySelector(".wallet");
-
-    //click on w3m-core-button inside web3Button
-    web3Button?.querySelector(".w3m-core-button")?.ATTRIBUTE_NODE("click");
-
-    console.log("web3Button", web3Button);
-  };
-
-  const isHome = pathname === "/skeleton-tomb";
+  const isHome = pathname === "/skeleton-money";
 
   console.log("pathname", pathname);
 
@@ -86,33 +38,14 @@ const LandingHeaderTomb = () => {
             <Link to="/">
               {
                 <>
-                  {!isHome && <img src="/skeleton-tomb-black.png" className="w-[320px] object-contain dark:hidden" alt="" />}
-                  <img src="/skeleton-tomb-white.png" className={`w-[320px] object-contain  ${isHome ? "block" : "hidden dark:block"}  `} alt="" />
+                  {!isHome && <img src="/skeleton-money-black.png" className="w-[320px] object-contain dark:hidden" alt="" />}
+                  <img src="/skeleton-money-white.png" className={`w-[320px] object-contain  ${isHome ? "block" : "hidden dark:block"}  `} alt="" />
                 </>
               }
             </Link>
             <nav
               className={` top-0 z-[91] flex items-center justify-start gap-6  bg-transparent static flex-row  ${headerToggle ? "right-0" : "-right-full"} h-full w-full overflow-y-auto  transition-all  duration-300 lg:h-auto lg:overflow-visible p-0`}
             >
-              {/* <button
-                className="absolute right-5 top-5 block text-black lg:hidden"
-                onClick={() => setHeaderToggle(false)}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill={`${pathname === '/' ? 'white' : 'black'}`}
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className={`h-8 w-8 ${pathname === '/' && !headerToggle ? 'text-white' : 'text-black dark:text-white'} `}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button> */}
               <HoverCard openDelay={200} className="!bg-dark">
                 <HoverCardTrigger className={`${isHome ? "text-white" : "text-black dark:text-white"}  font-medium items-center gap-2 cursor-pointer hidden lg:flex`}>
                   Earn <DownOutlined className="size-3" />
@@ -125,22 +58,22 @@ const LandingHeaderTomb = () => {
                         <img src="/skull-tomb.png" className="w-14 dark:block hidden" alt="" />
                         <img src="/skull-tomb-black.png" className="w-14 dark:hidden block" alt="" />
                         <div>
-                          <div className="text-xs dark:text-white text-black">Skeleton Tomb</div>
+                          <div className="text-xs dark:text-white text-black">Skeleton Money</div>
                         </div>
                       </div>
                       <div>
                         <Divider className="bg-white/20 my-5" />
                       </div>
                       <div>
-                        <Link to="/skeleton-tomb" className="w-full rounded">
+                        <Link to="/" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
                             <Atom />
-                            Skeleton Tomb
+                            Home
                           </div>
                         </Link>
                       </div>
-                      {/* <div>
+                      <div>
                         <Link to="/skeleton-farm" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
@@ -148,42 +81,42 @@ const LandingHeaderTomb = () => {
                             Skeleton Farm
                           </div>
                         </Link>
-                      </div> */}
-                      {/* <div>
+                      </div>
+                      <div>
                         <Link to="/skeleton-board" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
                             <Kanban />
-                            Skeleton Board
+                            Staking
                           </div>
                         </Link>
-                      </div> */}
-                      {/* <div>
-                        <Link to="/skeleton-liquidity" className="w-full rounded">
+                      </div>
+                      <div>
+                        <Link to="/presale" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
                             <Droplet />
-                            Liquidity
+                            Presale
                           </div>
                         </Link>
-                      </div> */}
+                      </div>
                     </div>
                     <div className="bg-gray-300 dark:bg-[#15151a] w-[300px] rounded p-4">
                       <div className="text-lg dark:text-white text-black">Socials</div>
                       <div className="grid grid-cols-2 gap-2 mt-3">
-                        <a href="https://twitter.com/S_Exchange" target="blank">
+                        <a href="https://x.com/skeleton_sonic" target="blank">
                           <div className="border border-gray-600 h-[100px] w-full rounded flex justify-center items-center">
                             <img src="/x.png" className={`w-12 object-contain dark:block hidden`} alt="" />
                             <img src="/x-black.png" className={`w-12 object-contain dark:hidden block`} alt="" />
                           </div>
                         </a>
-                        <a href="https://t.me/SkeletonExchange" target="blank">
+                        <a href="https://t.me/SkeletonLabs" target="blank">
                           <div className="border border-gray-600 h-[100px] w-full rounded flex justify-center items-center">
                             <img src="/telegram.svg" className={`w-10 object-contain dark:block hidden`} alt="" />
                             <img src="/telegram-black.svg" className={`w-10 object-contain dark:hidden block`} alt="" />
                           </div>
                         </a>
-                        <a href="https://twitter.com/S_Exchange" target="blank">
+                        <a href="https://x.com/skeleton_sonic" target="blank">
                           <div className="border border-gray-600 h-[100px] w-full rounded flex justify-center items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" className="h-full w-full m-4" viewBox="0 0 48 48">
                               <path
@@ -193,7 +126,7 @@ const LandingHeaderTomb = () => {
                             </svg>
                           </div>
                         </a>
-                        <a href="https://twitter.com/S_Exchange" target="blank">
+                        <a href=" https://skeleton-money.gitbook.io/skeleton.money-1" target="blank">
                           <div className="border border-gray-600 h-[100px] w-full rounded flex flex-col justify-center items-center">
                             <File className="size-10" />
                             Docs
@@ -204,55 +137,11 @@ const LandingHeaderTomb = () => {
                   </div>
                 </HoverCardContent>
               </HoverCard>
-              <Popover>
-                <PopoverTrigger className="text-black dark:text-white font-medium flex items-center gap-2">Earn <DownOutlined className="size-3" /></PopoverTrigger>
-                <PopoverContent className="w-[200px]">
-                  <div className="">
-                    <div>
-                      <Link to="/farming" className='w-full rounded'>
-                        <div className='w-full rounded py-2 hover:text-primary'>Farm</div>
-                      </Link>
-                    </div>
-                    <div>
-                      <Link to="/staking" className='w-full rounded'>
-                        <div className='w-full rounded py-2 hover:text-primary'>Staking</div>
-                      </Link>
-                    </div>
-                    <div>
-                      <Link to="/liquidity" className='w-full rounded'>
-                        <div className='w-full rounded py-2 hover:text-primary'>Liquidity</div>
-                      </Link>
-                    </div>
-                    <div>
-                      <Link to="/" className='w-full rounded'>
-                        <div className='w-full rounded py-2 hover:text-primary'>Bridge</div>
-                      </Link>
-                    </div>
-
-                  </div>
-                </PopoverContent>
-              </Popover>
-               <Link
-              onClick={() => setHeaderToggle(false)}
-              // to="/dapp"
-              to="/farming"
-              className={`text-base font-semibold text-black dark:text-white  capitalize hover:underline underline-offset-8`}
-            >
-              Farm
-            </Link>
-            <Link
-              onClick={() => setHeaderToggle(false)}
-              // to="/dapp"
-              to="/staking"
-              className={`text-base font-semibold text-black dark:text-white  capitalize hover:underline underline-offset-8`}
-            >
-              Staking
-            </Link>
 
               {
                 <div className="ml-auto flex gap-2">
                   {
-                    pathname !== '/skeleton-tomb' &&
+                    pathname !== '/skeleton-money' &&
                     <button onClick={() => themeContext.setTheme(themeContext.theme === "dark" ? "light" : "dark")} className=" text-white rounded p-2">
                       {themeContext.theme === "dark" ? (
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -280,53 +169,7 @@ const LandingHeaderTomb = () => {
                   )}
                 </div>
               }
-              {/*  <a href="https://twitter.com/BasedRate_" target="blank">
-            <img
-              src="/twitter.svg"
-              className="w-6 min-w-[24px] object-contain"
-              alt=""
-            />
-          </a>
-          <a href="https://t.me/BasedRate" target="blank">
-            <img
-              src="/telegram.svg"
-              className="w-6 min-w-[24px] object-contain"
-              alt=""
-            />
-          </a>
-
-          <a
-            href="https://basedrate.gitbook.io/based-rate/based-rate-docs/introduction"
-            target="blank"
-            className="hidden  lg:block"
-            onClick={() => setHeaderToggle(true)}
-          >
-            <img
-              src="/github.svg"
-              className="w-7 object-contain brightness-0 invert"
-              alt=""
-            />
-          </a> */}
             </nav>
-            {/* <button
-            className="block text-black lg:hidden"
-            onClick={() => setHeaderToggle(true)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill={`${pathname === '/' ? 'white' : 'black'}`}
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className={`h-8 w-8 ${pathname === '/' ? 'text-white' : 'text-black'} `}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"
-              />
-            </svg>
-          </button> */}
           </div>
         </div>
       </header>

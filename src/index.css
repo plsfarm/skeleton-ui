@@ -247,6 +247,17 @@
   }
 }
 
+.glow-bg-effect {
+  box-shadow:
+    0 0 15px rgba(255, 255, 255, 0.5),
+    0 0 30px rgba(255, 255, 255, 0.3);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+}
+
 .glow-effect {
   position: relative;
   color: #285555;

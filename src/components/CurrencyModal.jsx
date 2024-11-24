@@ -21,7 +21,6 @@ const CurrencyModal = ({
 
   const onSearch = (e) => {
     setSearch(e.target.value);
-    /* setTokens(tokens.filter((token) => token.name.includes(e.target.value))); */
   };
 
 
@@ -39,7 +38,6 @@ const CurrencyModal = ({
       <div className="my-2">
         <input className='bg-gray-300 p-3 rounded-lg text-sm text-black outline-none w-full' placeholder='Search name or paste address' value={search} onChange={onSearch} />
       </div>
-      {/* <div className="text-sm">Token name</div> */}
       <ul className="my-5">
         {Object.values(filterTokens)
           .map((token, index) => (

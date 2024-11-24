@@ -34,7 +34,7 @@ const ListViewItem = ({ item }) => {
                                 </div>
                                 <div>
                                     <div>SONIC</div>
-                                    <p className="text-sm font-medium text-primary">BMS</p>
+                                    <p className="text-sm font-medium text-primary">SKULL</p>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@ const ListViewItem = ({ item }) => {
                     <div className="transition-all duration-300 grid grid-cols-3 text-sm pt-7 gap-5">
                         <div>
                             <div className="text-lg">0.012<span className="text-gray-500 ml-1">USDC</span></div>
-                            <div className="text-gray-500">Per BMS</div>
+                            <div className="text-gray-500">Per SKULL</div>
                         </div>
                         <div>
                             <div className="text-lg">04/20/22 10:00<span className="text-gray-500 ml-1">UTC</span></div>

@@ -3,7 +3,7 @@ import {
 } from "@ant-design/icons";
 import { Modal } from "antd";
 import React, { useEffect, useState } from "react";
-import { BRATEAddress, BSHAREAddress } from "../utils/ContractAddresses";
+import { SkullAddress, BoneAddress } from "../utils/ContractAddresses";
 import { formatSmall } from "../utils/Helper";
 import { tokens } from "../utils/Tokens";
 
@@ -32,7 +32,7 @@ const RoiCalcModal = ({
 }) => {
   const [selectedDuration, setSelectedDuration] = useState("1D");
   const dailyAPR = APR / 365;
-  const token = boardroom ? BSHAREAddress : data?.poolsViews[pid]?.token;
+  const token = boardroom ? BoneAddress : data?.poolsViews[pid]?.token;
   const [amountIn, setAmountIn] = useState("");
   const [amountOut, setAmountOut] = useState("");
   const [isInverse, setIsInverse] = useState(false);
@@ -119,7 +119,7 @@ const RoiCalcModal = ({
             changeAmountIn(
               parseFloat(
                 boardroom
-                  ? data?.boardroomStakedPShare * 1
+                  ? data?.boardroomStakedSkull * 1
                   : data?.userViews[pid]?.stakedAmount *
                   data?.lpList[token]?.LPPrice
               )
@@ -171,14 +171,14 @@ const RoiCalcModal = ({
             ~{" "}
             {boardroom
               ? formatSmall(
-                amountOut / data?.pulseRatePriceInUSD,
-                tokens[BRATEAddress].format
+                amountOut / data?.skullPriceInUSD,
+                tokens[SkullAddress].format
               )
               : formatSmall(
                 amountOut / 1,
-                tokens[BSHAREAddress]?.format
+                tokens[BoneAddress]?.format
               )}{" "}
-            {boardroom ? "BRATE" : "BMS"}
+            {boardroom ? "SKULL" : "BONES"}
           </div>
         </div>
       </div>

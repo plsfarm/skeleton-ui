@@ -53,14 +53,6 @@ const SettingModal = ({
         />
         <div className="text-sm text-white/80">%</div>
       </div>
-      {/* <div className="mt-5 text-sm">Transaction deadline</div>
-      <div className="mt-2 flex items-center gap-3">
-        <input
-          className="rounded-lg bg-dark p-3 text-sm text-white outline-none"
-          placeholder="0.0"
-        />
-        <div className="text-sm">Minutes</div>
-      </div> */}
     </Modal>
   );
 };

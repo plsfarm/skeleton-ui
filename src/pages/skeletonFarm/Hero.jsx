@@ -22,23 +22,6 @@ const Hero = () => {
             <img src="/skeleton-farm-mbl.png" className="h-[300px] w-full lg:hidden  rounded-xl object-cover object-bottom" />
           </>
         }
-
-        {/*   <video
-          src="/farming_mobile.mp4"
-          className="h-[450px] w-full rounded-xl object-cover md:hidden"
-          loop
-          autoPlay
-          muted
-          playsInline
-        ></video>
-        <video
-          src="/farming_bg.mp4"
-          className="h-[450px] w-full rounded-xl object-cover hidden md:block"
-          loop
-          autoPlay
-          muted
-          playsInline
-        ></video> */}
       </div>
     </div>
   );
