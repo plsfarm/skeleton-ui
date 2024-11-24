@@ -7,7 +7,6 @@ import { EthereumClient, w3mConnectors, w3mProvider } from "@web3modal/ethereum"
 import { Web3Modal } from "@web3modal/react";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { pulsechain } from "wagmi/chains";
-import ReactGA from "react-ga4";
 import ContextProvider from "./utils/Context";
 import { ConfigProvider } from "antd";
 
@@ -32,8 +31,6 @@ const wagmiConfig = createConfig({
   publicClient,
 });
 const ethereumClient = new EthereumClient(wagmiConfig, chains);
-
-ReactGA.initialize("G-5Z4FPRFX4P");
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
