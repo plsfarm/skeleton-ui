@@ -27,13 +27,17 @@ const earnSkeletonItems = [{
 ]
 
 const earnItems = [
+    // {
+    //     title: 'Liquidity',
+    //     link: '/liquidity'
+    // },
+    // {
+    //     title: 'Skeleton Money',
+    //     link: '/skeleton-money'
+    // },
     {
-        title: 'Liquidity',
-        link: '/liquidity'
-    },
-    {
-        title: 'Skeleton Money',
-        link: '/skeleton-money'
+        title: 'Presale',
+        link: '/presale'
     }
 ]
 
@@ -59,9 +63,9 @@ const Footer = () => {
                 className="fixed left-0 bottom-0 z-[90] block h-auto w-full  bg-black lg:hidden border-t border-gray-700 md:py-3"
             >
                 <div className="grid grid-cols-2 items-center text-base *:text-white *font-bold *:cursor-pointer *text-3xl *:text-center overflow-auto gap-2 py-2 px-3">
-                    <Link to="/" className='w-full rounded hover:bg-primary hover:text-black'>Swap</Link>
+                    <Link to="/" className='w-full rounded hover:bg-primary hover:text-black'>Home</Link>
                     <Popover>
-                        <PopoverTrigger className='hover:bg-primary hover:text-black rounded'>EARN</PopoverTrigger>
+                        <PopoverTrigger className='hover:bg-primary hover:text-black rounded'>Menu</PopoverTrigger>
                         <PopoverContent className="w-[200px]">
                             <div >
                                 {
