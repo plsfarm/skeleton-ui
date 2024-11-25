@@ -117,7 +117,7 @@ const Presale = () => {
                                         0
                                     </h3>
                                     <span className="text-sm dark:text-white/70 text-black/70">
-                                        Registered USERS
+                                        Total Tickets Bought
                                     </span>
                                 </div>
                             </div>

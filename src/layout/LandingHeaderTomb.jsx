@@ -11,6 +11,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "../components/ui/
 
 const LandingHeaderTomb = () => {
   const [headerToggle, setHeaderToggle] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = useLocation().pathname;
   const themeContext = useTheme();
 
