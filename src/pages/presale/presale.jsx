@@ -45,12 +45,13 @@ const Presale = () => {
 
                         <div className="mb-2">
                             <h1 className="text-3xl font-bold dark:text-white text-black mb-1">
-                                Registration
+                                Raffle
                             </h1>
                             <p className="mb-2 dark:text-white text-black">
-                                Registration for skeleton exchange presale {" "}
-                                <span className="text-primary font-bold">ends in</span>:
+                            Presale raffle for skeleton money WL spots and max buy allocation{" "}
+                               
                             </p>
+                            <span className="text-primary font-bold">ends in</span>:
                             <div className="flex gap-3">
                                 <div className="flex aspect-square basis-[calc(25%-0.5625rem)] flex-col items-center justify-center rounded-md dark:bg-darklight bg-gray-500 dark:bg-opacity-100 bg-opacity-10 dark:text-white text-black">
                                     <h2 className="text-3xl font-bold leading-7">{timeLeft.days}</h2>
@@ -139,6 +140,11 @@ const Presale = () => {
                                 <img src="/telegram.svg" className={`w-5 object-contain dark:block hidden `} alt="" />
                                 <img src="/telegram-black.svg" className={`w-5 object-contain dark:hidden block `} alt="" />
                             </a>
+                            <a href="https://zealy.io/cw/skeletonlabs" target="blank">
+
+<img src="/zealy.png" className={`w-5 object-contain dark:block hidden `} alt="" />
+<img src="/zealy.png" className={`w-5 object-contain dark:hidden block `} alt="" />
+</a>
 
 
                         </div>
