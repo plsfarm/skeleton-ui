@@ -8,6 +8,7 @@ import SkeletonBoard from "./pages/skeletonBoard/Index";
 import SkeletonFarm from "./pages/skeletonFarm/Index";
 import SkeletonLiquidity from "./pages/skeletonLiquidity/SkeletonLiquidity";
 import SkeletonMoney from "./pages/skeletonMoney/Index";
+import Swap from "./pages/dapp/swap/Index";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route element={<SkeletonFarm />} path="skeleton-farm" />
         <Route element={<SkeletonBoard />} path="skeleton-board" />
         <Route element={<SkeletonLiquidity />} path="skeleton-liquidity" />
+        <Route element={<Swap />} path="dapp/swap" /> {/* Added Swap route */}
       </Routes>
     </ThemeProvider>
   );
