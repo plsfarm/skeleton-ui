@@ -7,7 +7,7 @@ import { formatSmall } from "../../utils/Helper";
 
 
 const Stats = () => {
-    const listViewItems = Array.from({ length: 20 }, (_, index) => {
+    const listViewItems = Array.from({ length: 4 }, (_, index) => {
         const isSpecialStyle = index === 0;
         return (
             <div key={index}>
