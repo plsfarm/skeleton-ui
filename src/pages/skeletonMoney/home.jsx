@@ -4,7 +4,7 @@ import { useTheme } from "../../components/ThemeProvider";
 import Footer from "../../layout/Footer";
 import { Context } from "../../utils/Context";
 import { useWindowSize } from "../../utils/hooks/useWindowSize";
-
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const context = useContext(Context);
@@ -49,9 +49,11 @@ const Home = () => {
 
                 {/* Launch Button */}
                 <div className="text-center">
-                  <button className="bg-[#00ffed] text-gray-800 font-semibold py-3 px-8 rounded-full text-xl transition-transform transform hover:scale-105 shadow-[0_0_15px_rgba(255,255,255,0.9),0_0_60px_rgba(255,255,255,0.7),0_0_40px_rgba(255,255,255,0.5)] font-[Orbitron]">
-                    Launch dapp if you dare
-                  </button>
+                  <Link to="/presale">
+                    <button className="bg-[#00ffed] text-gray-800 font-semibold py-3 px-8 rounded-full text-xl transition-transform transform hover:scale-105 shadow-[0_0_15px_rgba(255,255,255,0.9),0_0_60px_rgba(255,255,255,0.7),0_0_40px_rgba(255,255,255,0.5)] font-[Orbitron]">
+                      Launch dapp if you dare
+                    </button>
+                  </Link>
 
 
                 </div>

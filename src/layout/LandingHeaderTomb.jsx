@@ -73,7 +73,7 @@ const LandingHeaderTomb = () => {
                           </div>
                         </Link>
                       </div>
-                      <div>
+                      {/* <div>
                         <Link to="/skeleton-farm" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
@@ -81,8 +81,8 @@ const LandingHeaderTomb = () => {
                             Skeleton Farm
                           </div>
                         </Link>
-                      </div>
-                      <div>
+                      </div> */}
+                      {/* <div>
                         <Link to="/skeleton-board" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
@@ -90,7 +90,7 @@ const LandingHeaderTomb = () => {
                             Staking
                           </div>
                         </Link>
-                      </div>
+                      </div> */}
                       <div>
                         <Link to="/presale" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
