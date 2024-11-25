@@ -20,7 +20,7 @@ const Presale = () => {
             <div className="relative md:max-h-screen md:overflow-hidden">
                 <div className="flex justify-end items-center px-10 py-3 md:absolute right-0 z-30">
                     <Link
-                        to="https://skeleton-exchange.gitbook.io/skeleton.exchange/"
+                        to="https://skeleton-labs.gitbook.io/skeleton-money"
                         target="blank"
                         className="flex items-center justify-start transition-all duration-300 hover:bg-black hover:bg-opacity-[0.04] mr-5"
                     >
