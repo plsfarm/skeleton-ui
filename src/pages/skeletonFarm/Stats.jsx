@@ -11,7 +11,7 @@ const Stats = () => {
         const isSpecialStyle = index === 0;
         return (
             <div key={index}>
-                <ListViewItem item={{ pid: index }} index={index} length={20} />
+                <ListViewItem item={{ pid: index }} index={index} length={4} />
             </div>
         );
     });
