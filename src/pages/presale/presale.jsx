@@ -84,6 +84,10 @@ const Presale = () => {
                                 </div>
                             </div>
                         </div>
+                        <p className="mb-2 dark:text-white text-black">
+                            One ticket costs 5 FTM{" "}
+                               
+                            </p>
                         <input
   type="number"
   id="ticketCount"
