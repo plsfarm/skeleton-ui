@@ -32,9 +32,9 @@ const LandingHeaderTomb = () => {
         {headerToggle && <div onClick={() => setHeaderToggle(false)} className="fixed left-0 top-0 z-[90] block h-full w-full  bg-white opacity-60 lg:hidden"></div>}
         <div className="contain text-black/80 rounded-3xl py-0 w-full">
           <div className="px-3 flex items-center justify-between gap-7 lg:justify-start  py-0 w-full relative">
-            <div className='absolute text-black dark:text-white top-0 md:top-3 left-[70px] md:left-28 text-xs'>
+            {/* <div className='absolute text-black dark:text-white top-0 md:top-3 left-[70px] md:left-28 text-xs'>
               NOT LIVE IN TEST
-            </div>
+            </div> */}
             <Link to="/">
               {
                 <>

@@ -25,7 +25,7 @@ const Stats = () => {
                         <div className="flex flex-col gap-4 bg-white dark:bg-darklight min-h-[200px] p-7 rounded-lg">
                             <div className="flex gap-5 items-center">
                                 <div className="text-3xl dark:text-white text-black">Farms</div>
-                                <div className='uppercase text-orange-600'>NOT LIVE IN TESTING</div>
+                                {/* <div className='uppercase text-orange-600'>NOT LIVE IN TESTING</div> */}
 
                             </div>
                             <div>

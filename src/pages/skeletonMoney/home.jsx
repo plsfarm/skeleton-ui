@@ -34,7 +34,7 @@ const Home = () => {
       <div className="absolute top-14 flex flex-col items-center w-full">
         <div className="contain mx-auto relative isolate flex-col items-start justify-start gap-8  pt-10  ">
           <div className="relative flex flex-col w-full justify-center items-center gap-4 pt-5 2xl:pt-12 pb-5">
-            <div className="text-2xl text-orange-600 font-bold mt-10 md:mt-0">NOT LIVE IN TEST</div>
+            {/* <div className="text-2xl text-orange-600 font-bold mt-10 md:mt-0">NOT LIVE IN TEST</div> */}
             <div className="flex flex-col items-center justify-between rounded-lg text-white lg:pt-10 pb-16 px-4 min-h-[200px] sm:min-h-[250px] md:min-h-[68vh]">
               {/* Cryptic Text */}
               <div className="text-center">
