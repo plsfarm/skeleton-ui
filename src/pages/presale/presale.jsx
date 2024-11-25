@@ -169,9 +169,31 @@ const Presale = () => {
                   <span className="text-sm dark:text-white/70 text-black/70">
                     Your Tickets
                   </span>
+                  
                 </div>
+
+                
               </div>
+              
             </div>
+         
+                        <div className="flex items-center justify-center gap-6 mt-3">
+                            <a href="https://twitter.com/skeleton_sonic" target="blank">
+                                <img src="/x.png" className={`w-5 object-contain dark:block hidden`} alt="" />
+                                <img src="/x-black.png" className={`w-5 object-contain dark:hidden block`} alt="" />
+                            </a>
+                            <a href="https://t.me/SkeletonLabs" target="blank">
+
+                                <img src="/telegram.svg" className={`w-5 object-contain dark:block hidden `} alt="" />
+                                <img src="/telegram-black.svg" className={`w-5 object-contain dark:hidden block `} alt="" />
+                            </a>
+                            <a href="https://zealy.io/cw/skeletonlabs" target="blank">
+                                <img src="/zealy.png" className={`w-5 object-contain dark:block hidden `} alt="" />
+                                <img src="/zealy.png" className={`w-5 object-contain dark:hidden block `} alt="" />
+                            </a>
+
+
+                            </div>
           </div>
         </div>
       </div>
