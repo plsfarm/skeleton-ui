@@ -83,20 +83,34 @@ const Presale = () => {
                                 </div>
                             </div>
                         </div>
+                        <input
+  type="number"
+  id="ticketCount"
+  name="ticketCount"
+  min="1"
+  className="mt-1 w-full max-w-md rounded-xl border-gray-300 shadow-sm focus:ring-primary focus:border-primary dark:border-gray-700 dark:bg-gray-800 dark:text-white p-3 h-14 text-center"
+  placeholder="Enter number of tickets"
+/>
+
                         <button
                             className={`mt-2 h-11 w-full rounded-xl bg-primary text-black p-2 font-[500] shadow-lg transition-all duration-300 ${false ? "cursor-not-allowed opacity-50" : ""
                                 }`}
                         >
-                            Registration is open
+                            Buy Tickets
                         </button>
+
+
                         <div className="flex flex-col gap-3">
                             <div className="flex flex-col gap-3 sm:flex-row">
                                 <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
                                     <h3
                                         className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold"
                                     >
-                                        Not registered
+                                        0
                                     </h3>
+                                    <span className="text-sm dark:text-white/70 text-black/70">
+                                        Your Tickets
+                                    </span>
                                 </div>
                                 <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
                                     <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold leading-5">
@@ -110,11 +124,11 @@ const Presale = () => {
 
                             <div className="flex flex-col gap-3 sm:flex-row"></div>
                         </div>
-                        <div className="mt-2 relative z-20">
+                        {/* <div className="mt-2 relative z-20">
                             <Link to="/" className="btn-base bg-green-600 text-white cursor-pointer">
                                 Launch Test Dapp
                             </Link>
-                        </div>
+                        </div> */}
                         <div className="flex items-center justify-center gap-6 mt-3">
                             <a href="https://twitter.com/S_Exchange" target="blank">
                                 <img src="/x.png" className={`w-5 object-contain dark:block hidden`} alt="" />
