@@ -16,7 +16,7 @@ const Presale = () => {
 
     return (
         <>
-            <Link target="_blank" to="https://zealy.io/cw/skeletonlabs" className="bg-[#020417] text-white w-full flex justify-center py-1 cursor-pointer relative z-[200]">Complete tasks for chance to win free airdrop</Link>
+            <Link target="_blank" to="https://zealy.io/cw/skeletonlabs" className="bg-[#020417] text-white w-full flex justify-center py-1 cursor-pointer relative z-[200]">Complete tasks to secure a WL spot and earn exclusive rewards</Link>
             <div className="relative md:max-h-screen md:overflow-hidden">
                 <div className="flex justify-end items-center px-10 py-3 md:absolute right-0 z-30">
                     <Link
