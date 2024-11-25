@@ -6,12 +6,12 @@ import { BrowserRouter } from "react-router-dom";
 import { EthereumClient, w3mConnectors, w3mProvider } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/react";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { pulsechain } from "wagmi/chains";
+import { fantom } from "wagmi/chains";
 import ContextProvider from "./utils/Context";
 import { ConfigProvider } from "antd";
 
-const pulsechainFork = {
-  ...pulsechain,
+const fantomFork = {
+  ...fantom,
   id: 31337,
   rpcUrls: {
     default: { http: ["http://localhost:8545"] },
@@ -19,8 +19,8 @@ const pulsechainFork = {
   },
 };
 
-const chains = [pulsechain];
-// const chains = [pulsechain, pulsechainFork];
+const chains = [fantom];
+// const chains = [fantomchain, fantomFork];
 
 const projectId = "6d3445e93cf2d607c5cffdafc14e5408";
 
@@ -74,8 +74,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           "--w3m-accent-fill-color": "white",
           "--w3m-button-border-radius": "20px",
         }}
-        defaultChain={pulsechain}
-      //  defaultChain={pulsechainFork}
+        defaultChain={fantom}
+      //  defaultChain={fantomFork}
       />
     </BrowserRouter>
   </React.StrictMode>
