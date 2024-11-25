@@ -36,37 +36,38 @@ const Stats = () => {
                             <Tabs defaultValue="deposit" className="w-full">
                                 <TabsList className='w-full'>
                                     <TabsTrigger value="deposit" className='px-20'>Deposit</TabsTrigger>
-                                    <TabsTrigger value="withdraw" className='px-20'>Withdraw</TabsTrigger>
+                                    {/* <TabsTrigger value="withdraw" className='px-20'>Withdraw</TabsTrigger> */}
                                 </TabsList>
                                 <TabsContent value="deposit">
                                     <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 mt-7">
                                         <div>
-                                            <div className="text-base mb-2">From vault</div>
+                                            <div className="text-base mb-2">Token</div>
                                             <div className="border dark:border-gray-800 dark:bg-gray-800 border-gray-300 rounded-lg px-3 py-2 w-full flex items-center gap-2" >
                                                 <img src='/skicon.png' className="w-6 h-6" alt="" />
-                                                st-yCRV
+                                                Skulls
                                             </div>
                                         </div>
                                         <div>
                                             <div className="text-base mb-2">Amount</div>
                                             <input type="text" placeholder="0" className="border dark:border-gray-800 dark:bg-gray-800 border-gray-300 rounded-lg px-3 py-2 w-full" />
                                         </div>
-                                        <div className="flex items-center justify-center pt-7">
-                                            <ArrowRight />
+
+                                        <div>
+                                            <div className="text-base mb-2">Staked</div>
+     
+                                           
+                                            <input type="text" placeholder="0" className="border dark:border-gray-800 dark:bg-gray-800 border-gray-300 rounded-lg px-3 py-2 w-full" />
+                                  
                                         </div>
                                         <div>
-                                            <div className="text-base mb-2">To wallet</div>
-                                            <div className="border dark:border-gray-800 dark:bg-gray-800 border-gray-300 rounded-lg px-3 py-2 w-full flex items-center gap-2" >
-                                                <img src='/phex.png' className="w-6 h-6" alt="" />
-                                                st-yCRV
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="text-base mb-2">You will receive</div>
+                                            <div className="text-base mb-2">Pending</div>
                                             <input type="text" placeholder="0" className="border dark:border-gray-800 dark:bg-gray-800 border-gray-300 rounded-lg px-3 py-2 w-full" />
                                         </div>
                                         <div className="flex items-center justify-center mt-7">
-                                            <button className="btn-base bg-primary border border-textclr !text-sm" onClick={() => setIsStakeModal(true)} >Deposit</button>
+                                            <button className="btn-base bg-primary border border-textclr !text-sm" onClick={() => setIsStakeModal(true)} >Deposit/Withdraw</button>
+                                        </div>
+                                        <div className="flex items-center justify-center mt-7">
+                                            <button className="btn-base bg-primary border border-textclr !text-sm" >Claim</button>
                                         </div>
 
                                     </div>

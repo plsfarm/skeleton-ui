@@ -33,8 +33,9 @@ const ListViewItem = ({ index, length }) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <div>SONIC</div>
-                                    <p className="text-sm font-medium text-primary">Bones</p>
+                                    <div>SONIC-USDC</div>
+                                    <p className="text-sm font-medium text-primary">Earn Bones</p>
+                                    <p className="text-sm font-medium text-primary">Pending 154 Bones ≈ $143</p>
                                 </div>
                             </div>
                         </div>
@@ -44,11 +45,15 @@ const ListViewItem = ({ index, length }) => {
                                 className="flex cursor-pointer gap-2 dark:text-white/80  transition-all duration-150 hover:brightness-50"
                                 onClick={() => setIsModalOpen(true)}
                             >
-                                <p className="text-sm font-semibold dark:text-white/80 ">0.00%</p>
+                                <p className="text-sm font-semibold dark:text-white/80 ">100.00%</p>
                                 <CalculatorOutlined className="text-lg text-primary " />
+                                <div>SONIC</div>
                             </div>
+                            
                         </div>
+                        
                         <div className="flex flex-col md:flex-row items-center gap-2 w-full h-full col-span-2 lg:col-span-1">
+                            
                             <Link to={`/skeleton-farm`} className="btn-base !rounded-lg border dark:border-white/50 border-black/50 px-3 !text-sm !py-2">
                                 Claim Rewards
                             </Link>
@@ -61,19 +66,41 @@ const ListViewItem = ({ index, length }) => {
                 {isDetailOpen && (
                     <div className="transition-all duration-300 grid grid-cols-3 text-sm pt-7 gap-5 relative">
                         <div>
-                            <div className="text-lg">0.012<span className="text-gray-500 ml-1">USDC</span></div>
-                            <div className="text-gray-500">Per Bones</div>
+                            <div className="text-lg">
+                                0.012<span className="text-gray-500 ml-1"> ≈ $143</span>
+                            </div>
+                            <div className="text-gray-500">Staked</div>
                         </div>
                         <div>
-                            <div className="text-lg">04/20/22 10:00<span className="text-gray-500 ml-1">UTC</span></div>
-                            <div className="text-gray-500">Pool open</div>
+                            <div className="flex justify-between items-center mb-1">
+                                <span className="text-gray-500">Balance: 0.012 ≈ $143</span>
+                                <span
+                                    className="text-primary cursor-pointer text-sm font-medium hover:underline"
+                                    onClick={() => console.log("Set max value to balance")}
+                                >
+                                    Max
+                                </span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <input
+                                    type="number"
+                                    className="border rounded-lg px-2 py-1 text-black dark:text-white w-full opacity-50 hover:opacity-100 transition-opacity duration-200"
+                                    placeholder="Enter value"
+                                    min="0"
+                                />
+
+                            </div>
                         </div>
-                        <div>
-                            <div className="text-lg">04/20/22 22:00<span className="text-gray-500 ml-1">UTC</span></div>
-                            <div className="text-gray-500">Pool close</div>
-                        </div>
+                        <Link
+                            to={`/skeleton-farm`}
+                            className="btn-base !rounded-lg border dark:border-white/50 border-black/50 px-3 !text-sm !py-2"
+                        >
+                            Stake
+                        </Link>
                     </div>
                 )}
+
+
             </div>
 
 
