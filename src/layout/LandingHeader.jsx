@@ -95,7 +95,7 @@ const LandingHeaderTomb = () => {
                             <img src="/telegram-black.svg" className={`w-10 object-contain dark:hidden block`} alt="" />
                           </div>
                         </a>
-                        <a href="https://twitter.com/S_Exchange" target="blank">
+                        <a href="https://twitter.com/skeleton_sonic" target="blank">
                           <div className="border border-gray-600 h-[100px] w-full rounded flex justify-center items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" className="h-full w-full m-4" viewBox="0 0 48 48">
                               <path

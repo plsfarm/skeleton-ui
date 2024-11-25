@@ -130,11 +130,11 @@ const Presale = () => {
                             </Link>
                         </div> */}
                         <div className="flex items-center justify-center gap-6 mt-3">
-                            <a href="https://twitter.com/S_Exchange" target="blank">
+                            <a href="https://twitter.com/skeleton_sonic" target="blank">
                                 <img src="/x.png" className={`w-5 object-contain dark:block hidden`} alt="" />
                                 <img src="/x-black.png" className={`w-5 object-contain dark:hidden block`} alt="" />
                             </a>
-                            <a href="https://t.me/SkeletonExchange" target="blank">
+                            <a href="https://t.me/SkeletonLabs" target="blank">
 
                                 <img src="/telegram.svg" className={`w-5 object-contain dark:block hidden `} alt="" />
                                 <img src="/telegram-black.svg" className={`w-5 object-contain dark:hidden block `} alt="" />
