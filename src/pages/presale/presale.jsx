@@ -5,6 +5,7 @@ import Footer from "../../layout/Footer";
 import { useTheme } from "../../components/ThemeProvider";
 import { getTickets, raffle } from "./raffle";
 import { getTimeLeft} from "./rafflegetter";
+
 const Presale = () => {
     const themeContext = useTheme();
     const [timeLeft, setTimeLeft] = useState({
@@ -177,7 +178,7 @@ const Presale = () => {
                         </div>
 
                         <div className="flex items-center justify-center gap-6 mt-3">
-                            <a href="https://twitter.com/skeleton_sonic" target="blank">
+                            <a href="https://twitter.com/skeletonslab" target="blank">
                                 <img src="/x.png" className={`w-5 object-contain dark:block hidden`} alt="" />
                                 <img src="/x-black.png" className={`w-5 object-contain dark:hidden block`} alt="" />
                             </a>

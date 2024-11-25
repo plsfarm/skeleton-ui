@@ -105,7 +105,7 @@ const LandingHeaderTomb = () => {
                     <div className="bg-gray-300 dark:bg-[#15151a] w-[300px] rounded p-4">
                       <div className="text-lg dark:text-white text-black">Socials</div>
                       <div className="grid grid-cols-2 gap-2 mt-3">
-                        <a href="https://x.com/skeleton_sonic" target="blank">
+                        <a href="https://x.com/skeletonslab" target="blank">
                           <div className="border border-gray-600 h-[100px] w-full rounded flex justify-center items-center">
                             <img src="/x.png" className={`w-12 object-contain dark:block hidden`} alt="" />
                             <img src="/x-black.png" className={`w-12 object-contain dark:hidden block`} alt="" />
@@ -117,7 +117,7 @@ const LandingHeaderTomb = () => {
                             <img src="/telegram-black.svg" className={`w-10 object-contain dark:hidden block`} alt="" />
                           </div>
                         </a>
-                        <a href="https://x.com/skeleton_sonic" target="blank">
+                        <a href="https://x.com/skeletonslab" target="blank">
                           <div className="border border-gray-600 h-[100px] w-full rounded flex justify-center items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" className="h-full w-full m-4" viewBox="0 0 48 48">
                               <path
