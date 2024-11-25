@@ -126,7 +126,7 @@ const LandingHeaderTomb = () => {
                             </svg>
                           </div>
                         </a>
-                        <a href=" https://skeleton-money.gitbook.io/skeleton.money-1" target="blank">
+                        <a href=" https://skeleton-labs.gitbook.io/skeleton-money" target="blank">
                           <div className="border border-gray-600 h-[100px] w-full rounded flex flex-col justify-center items-center">
                             <File className="size-10" />
                             Docs
