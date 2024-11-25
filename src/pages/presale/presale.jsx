@@ -48,7 +48,7 @@ const Presale = () => {
                                 Raffle
                             </h1>
                             <p className="mb-2 dark:text-white text-black">
-                            Presale raffle for skeleton money WL spots and max buy allocation{" "}
+                            Join the raffle for your chance to win a whitelist spot!{" "}
                                
                             </p>
                             <span className="text-primary font-bold">ends in</span>:
