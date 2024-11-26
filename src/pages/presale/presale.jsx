@@ -190,7 +190,7 @@ const Presale = () => {
                             
 
   <span className="text-sm leading-4 opacity-75 text-center">
-    Enter ticket amount - 5 FTM = 1 ticket
+    Enter ticket amount - 1 ticket = 5 FTM 
   </span>
 
 
