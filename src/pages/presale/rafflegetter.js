@@ -11,7 +11,7 @@ const contract = new web3.eth.Contract(ABI_REGISTER, RAFFLE_ADDRESS);
 // Get time left until raffle ends
 export const getTimeLeft = async () => {
   try {
-    const endTime = await contract.methods.endTime().call();
+    const endTime = 1733011200;
     const now = Math.floor(Date.now() / 1000); // Current timestamp in seconds
 
     if (endTime < now) {
