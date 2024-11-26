@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../layout/Footer";
 import { useTheme } from "../../components/ThemeProvider";
 import { getTickets, raffle } from "./raffle";
-import { getTimeLeft} from "./rafflegetter";
+import { getTimeLeft, getTotalTickets} from "./rafflegetter";
 
 const Presale = () => {
     const themeContext = useTheme();
@@ -17,6 +17,7 @@ const Presale = () => {
     const [userTickets, setUserTickets] = useState(0);
     const [ticketInput, setTicketInput] = useState(1);
     const [loading, setLoading] = useState(false);
+    const [totalTickets, setTotalTickets] = useState(0)
 
     // Fetch time left
     useEffect(() => {
@@ -36,6 +37,20 @@ const Presale = () => {
         updateTimeLeft();
         const timer = setInterval(updateTimeLeft, 1000); // Update every second
         return () => clearInterval(timer);
+    }, []);
+
+    useEffect(() => {
+        const fetchTotalTickets = async () => {
+            try {
+                const total = await getTotalTickets();
+                setTotalTickets(total.toNumber());
+            } catch (error) {
+                console.error("Failed to fetch total tickets: ", error);
+            }
+        };
+        fetchTotalTickets();
+        const interval = setInterval(fetchTotalTickets, 5000); // Update every 5 seconds
+        return () => clearInterval(interval);
     }, []);
 
     // Fetch user's tickets
@@ -218,17 +233,24 @@ const Presale = () => {
                         </button>
                         <div className="flex flex-col gap-3">
                             <div className="flex flex-col gap-3 sm:flex-row">
-                                <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
-                                    <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold">
-                                        {userTickets}
-                                    </h3>
-                                    <span className="text-sm dark:text-white/70 text-black/70">
-                                        Your Tickets
-                                    </span>
+                            <div className="flex flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
+        <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold">
+            {userTickets}
+        </h3>
+        <span className="text-sm dark:text-white/70 text-black/70">
+            Your Tickets
+        </span>
+    </div>
 
-                                </div>
-
-
+    {/* Total Tickets Box */}
+    <div className="flex flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
+        <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold">
+            {totalTickets}
+        </h3>
+        <span className="text-sm dark:text-white/70 text-black/70">
+            Total Tickets
+        </span>
+    </div>
                             </div>
 
                         </div>

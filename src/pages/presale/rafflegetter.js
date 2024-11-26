@@ -40,3 +40,18 @@ export const getRegisteredUsers = async () => {
     throw error;
   }
 };
+
+
+export const getTotalTickets = async () => {
+  try {
+
+    const balanceWei = await web3.eth.getBalance(RAFFLE_ADDRESS);
+    const balanceEther = new BigNumber(web3.utils.fromWei(balanceWei, 'ether'));
+    const balancePlusFive = balanceEther.plus(5);
+    const balanceDividedByFive = balancePlusFive.dividedBy(5);
+    return balanceDividedByFive;
+  } catch (error) {
+    console.error("Error fetching balance: ", error);
+    throw error;
+  }
+};
