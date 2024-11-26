@@ -48,8 +48,9 @@ const Presale = () => {
                 console.error("Failed to fetch user tickets: ", error);
             }
         };
-
         fetchTickets();
+        const interval = setInterval(fetchTickets, 5000); 
+        return () => clearInterval(interval); 
     }, []);
 
     // Handle ticket purchase
