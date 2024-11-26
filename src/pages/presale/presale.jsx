@@ -158,7 +158,9 @@ const Presale = () => {
     style={{ backgroundColor: "#000" }} /* Ensures full solid black */
   >
     <p>
-      Purchase a ticket to secure your spot in the phase one presale.<br />
+    <br /> Purchase a ticket to secure your spot in the phase one presale.<br />   <br />  
+    Up for grabs in the unique Skeleton raffle system: Skeleton Money genesis NFT's, <br /><br />2000 FTM pre-filled allocation spots, and, of course, the coveted Skeleton Champion Whitelist allocations.
+    <br />  
       <br />
       Each ticket increases your allocation potential.<br />
    
