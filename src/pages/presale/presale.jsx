@@ -72,13 +72,32 @@ const Presale = () => {
 
     return (
         <>
-            <Link
-                target="_blank"
-                to="https://zealy.io/cw/skeletonlabs"
-                className="bg-[#020417] text-white w-full flex justify-center py-1 cursor-pointer relative z-[200]"
-            >
-                Complete tasks to secure a WL spot and earn exclusive rewards
-            </Link>
+<Link
+    target="_blank"
+    to="https://zealy.io/cw/skeletonlabs"
+    className="bg-[#111827] text-white w-full flex justify-center py-1 cursor-pointer relative z-[100] text-shadow-pulse"
+>
+    Complete tasks to secure a WL spot and earn exclusive rewards
+</Link>
+
+<style jsx>{`
+    @keyframes pulse {
+        0% {
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+        50% {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 15px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1);
+        }
+        100% {
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+    }
+
+    .text-shadow-pulse {
+        animation: pulse 4s infinite;
+    }
+`}</style>
+
             <div className="relative md:max-h-screen md:overflow-hidden">
                 <div className="flex justify-end items-center px-10 py-3 md:absolute right-0 z-30">
                     <Link
@@ -92,6 +111,7 @@ const Presale = () => {
                         <Web3Button icon="hide" label="Connect" />
                     </div>
                 </div>
+               
                 <img
                     src="/presale.jpg"
                     className="w-full hidden sm:block sm:h-screen object-cover"
