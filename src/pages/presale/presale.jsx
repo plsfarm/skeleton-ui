@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../layout/Footer";
 import { useTheme } from "../../components/ThemeProvider";
 import { getTickets, raffle } from "./raffle";
-import { getTimeLeft, getTotalTickets} from "./rafflegetter";
+import { getTimeLeft, getTotalTickets } from "./rafflegetter";
 
 const Presale = () => {
     const themeContext = useTheme();
@@ -18,6 +18,40 @@ const Presale = () => {
     const [ticketInput, setTicketInput] = useState(1);
     const [loading, setLoading] = useState(false);
     const [totalTickets, setTotalTickets] = useState(0)
+    const [isConnected, setIsConnected] = useState(false);
+
+    useEffect(() => {
+        const checkConnection = async () => {
+            if (window.ethereum) {
+                try {
+                    // Check if any accounts are connected
+                    const accounts = await window.ethereum.request({ method: "eth_accounts" });
+                    setIsConnected(accounts.length > 0);
+                } catch (error) {
+                    console.error("Error checking connection: ", error);
+                }
+            } else {
+                setIsConnected(false);
+            }
+        };
+
+        checkConnection();
+
+        // Listen for wallet connection changes
+        if (window.ethereum) {
+            const handleAccountsChanged = (accounts) => {
+                setIsConnected(accounts.length > 0);
+            };
+
+            window.ethereum.on("accountsChanged", handleAccountsChanged);
+
+            return () => {
+                window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
+            };
+        }
+    }, []);
+
+
 
     // Fetch time left
     useEffect(() => {
@@ -64,8 +98,8 @@ const Presale = () => {
             }
         };
         fetchTickets();
-        const interval = setInterval(fetchTickets, 5000); 
-        return () => clearInterval(interval); 
+        const interval = setInterval(fetchTickets, 5000);
+        return () => clearInterval(interval);
     }, []);
 
     // Handle ticket purchase
@@ -88,15 +122,15 @@ const Presale = () => {
 
     return (
         <>
-<Link
-    target="_blank"
-    to="https://zealy.io/cw/skeletonlabs"
-    className="bg-[#111827] text-white w-full flex justify-center py-1 cursor-pointer relative z-[100] text-shadow-pulse"
->
-    Complete tasks to secure a WL spot and earn exclusive rewards
-</Link>
+            <Link
+                target="_blank"
+                to="https://zealy.io/cw/skeletonlabs"
+                className="bg-[#111827] text-white w-full flex justify-center py-1 cursor-pointer relative z-[100] text-shadow-pulse"
+            >
+                Complete tasks to secure a WL spot and earn exclusive rewards
+            </Link>
 
-<style jsx>{`
+            <style jsx>{`
     @keyframes pulse {
         0% {
             text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.7);
@@ -127,7 +161,7 @@ const Presale = () => {
                         <Web3Button icon="hide" label="Connect" />
                     </div>
                 </div>
-               
+
                 <img
                     src="/presale.jpg"
                     className="w-full hidden sm:block sm:h-screen object-cover"
@@ -179,40 +213,40 @@ const Presale = () => {
                                 ))}
                             </div>
                         </div>
-                        
+
                         <p className="mb-2 dark:text-white text-black">
 
-                        <div className="relative group">
-  {/* Main Text */}
-  <p className="mb-2 text-primary font-bold cursor-pointer">
-    How to Participate
-  </p>
+                            <div className="relative group">
+                                {/* Main Text */}
+                                <p className="mb-2 text-primary font-bold cursor-pointer">
+                                    How to Participate
+                                </p>
 
-  {/* Hidden Text (Revealed on Hover) */}
-  <div
-    className="absolute hidden group-hover:block bg-gray-900 text-white p-3 rounded-md mt-2 w-full z-10"
-    style={{ backgroundColor: "#000" }} /* Ensures full solid black */
-  >
-    <p>
-    <br /> Purchase a ticket to secure your spot in the phase one presale.<br />   <br />  
-    Up for grabs in the unique Skeleton raffle system: Skeleton Money genesis NFT's, <br /><br />2000 FTM pre-filled allocation spots, and, of course, the coveted Skeleton Champion Whitelist allocations.
-    <br />  
-      <br />
-      Each ticket increases your allocation potential.<br />
-   
-    </p>
-  </div>
-</div>
-                            
+                                {/* Hidden Text (Revealed on Hover) */}
+                                <div
+                                    className="absolute hidden group-hover:block bg-gray-900 text-white p-3 rounded-md mt-2 w-full z-10"
+                                    style={{ backgroundColor: "#000" }} /* Ensures full solid black */
+                                >
+                                    <p>
+                                        <br /> Purchase a ticket to secure your spot in the phase one presale.<br />   <br />
+                                        Up for grabs in the unique Skeleton raffle system: Skeleton Money genesis NFT's, <br /><br />2000 FTM pre-filled allocation spots, and, of course, the coveted Skeleton Champion Whitelist allocations.
+                                        <br />
+                                        <br />
+                                        Each ticket increases your allocation potential.<br />
 
-  <span className="text-sm leading-4 opacity-75 text-center">
-    Enter ticket amount - 1 ticket = 5 FTM 
-  </span>
+                                    </p>
+                                </div>
+                            </div>
 
 
-                            
+                            <span className="text-sm leading-4 opacity-75 text-center">
+                                Enter ticket amount - 1 ticket = 5 FTM
+                            </span>
+
+
+
                         </p>
-          
+
                         <input
                             type="number"
                             id="ticketCount"
@@ -225,32 +259,33 @@ const Presale = () => {
                         />
                         <button
                             onClick={handleBuyTickets}
-                            disabled={loading}
-                            className={`mt-2 h-11 w-full rounded-xl bg-primary text-black p-2 font-[500] shadow-lg transition-all duration-300 ${loading ? "cursor-not-allowed opacity-50" : ""
-                                }`}
+                            disabled={!isConnected || loading}
+                            className={`mt-2 h-11 w-full rounded-xl text-black p-2 font-[500] shadow-lg transition-all duration-300 
+        ${loading || !isConnected ? "bg-gray-400 cursor-not-allowed opacity-50" : "bg-primary"}`}
                         >
                             {loading ? "Processing..." : "Buy Tickets"}
                         </button>
+
                         <div className="flex flex-col gap-3">
                             <div className="flex flex-col gap-3 sm:flex-row">
-                            <div className="flex flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
-        <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold">
-            {userTickets}
-        </h3>
-        <span className="text-sm dark:text-white/70 text-black/70">
-            Your Tickets
-        </span>
-    </div>
+                                <div className="flex flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
+                                    <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold">
+                                        {userTickets}
+                                    </h3>
+                                    <span className="text-sm dark:text-white/70 text-black/70">
+                                        Your Tickets
+                                    </span>
+                                </div>
 
-    {/* Total Tickets Box */}
-    <div className="flex flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
-        <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold">
-            {totalTickets}
-        </h3>
-        <span className="text-sm dark:text-white/70 text-black/70">
-            Total Tickets
-        </span>
-    </div>
+                                {/* Total Tickets Box */}
+                                <div className="flex flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
+                                    <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold">
+                                        {totalTickets}
+                                    </h3>
+                                    <span className="text-sm dark:text-white/70 text-black/70">
+                                        Total Tickets
+                                    </span>
+                                </div>
                             </div>
 
                         </div>
