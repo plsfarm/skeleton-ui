@@ -158,9 +158,10 @@ const Presale = () => {
     style={{ backgroundColor: "#000" }} /* Ensures full solid black */
   >
     <p>
-      1. Purchase a ticket to secure your spot in the phase one presale.<br />
-      2. Each ticket increases your allocation potential.<br />
-      3. Follow the on-screen instructions after ticket purchase.
+      Purchase a ticket to secure your spot in the phase one presale.<br />
+      <br />
+      Each ticket increases your allocation potential.<br />
+   
     </p>
   </div>
 </div>
