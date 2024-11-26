@@ -269,7 +269,8 @@ const Presale = () => {
                         />
                         <button
                             onClick={handleBuyTickets}
-                            disabled={!isConnected || loading}
+                            disabled={true}
+                            // disabled={!isConnected || loading}
                             className={`mt-2 h-11 w-full rounded-xl text-black p-2 font-[500] shadow-lg transition-all duration-300 
         ${loading || !isConnected ? "bg-gray-400 cursor-not-allowed opacity-50" : "bg-primary"}`}
                         >
