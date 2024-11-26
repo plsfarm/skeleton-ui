@@ -166,11 +166,11 @@ const Presale = () => {
   </div>
 </div>
                             
-<div className="flex items-center justify-center">
+
   <span className="text-sm leading-4 opacity-75 text-center">
     Enter ticket amount - 5 FTM = 1 ticket
   </span>
-</div>
+
 
                             
                         </p>
