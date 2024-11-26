@@ -19,6 +19,7 @@ const Presale = () => {
     const [loading, setLoading] = useState(false);
     const [totalTickets, setTotalTickets] = useState(0)
     const [isConnected, setIsConnected] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
         const checkConnection = async () => {
@@ -112,10 +113,10 @@ const Presale = () => {
                 const tickets = await getTickets(); // Update user's tickets
                 setUserTickets(tickets.toNumber());
             } else {
-                alert("Purchase failed: " + result.error);
+                setErrorMessage("Purchase failed: " + result.error);
             }
         } catch (error) {
-            alert("Error: " + error.message);
+            setErrorMessage("Error: " + error.message);
         }
         setLoading(false);
     };
@@ -129,6 +130,7 @@ const Presale = () => {
             >
                 Complete tasks to secure a WL spot and earn exclusive rewards
             </Link>
+
 
             <style jsx>{`
     @keyframes pulse {
@@ -162,12 +164,18 @@ const Presale = () => {
                     </div>
                 </div>
 
+
+
                 <img
                     src="/presale.jpg"
                     className="w-full hidden sm:block sm:h-screen object-cover"
                 />
+
+
                 <div className="absolute flex flex-1 flex-col items-center w-full top-14 md:top-0 h-screen justify-center">
                     <div className="mx-auto box m-auto min-w-[300px] max-w-[400px] px-3 gap-3 space-y-5 rounded-lg my-14 dark:!bg-gray-900 !bg-gray-200">
+
+
                         <Link
                             to="/"
                             className="flex flex-col justify-center items-center gap-3 text-center text-5xl font-bold text-black md:flex-row"
@@ -183,6 +191,8 @@ const Presale = () => {
                                 className="mt-2 w-56 dark:hidden"
                             />
                         </Link>
+
+
 
                         <div className="mb-2">
                             {/* <h1 className="text-3xl font-bold dark:text-white text-black mb-1">
@@ -305,7 +315,32 @@ const Presale = () => {
                                 <img src="/zealy.png" className={`w-5 object-contain dark:hidden block `} alt="" />
                             </a>
                         </div>
+
+
                     </div>
+                    {errorMessage && (
+                        <div className="mt-4 p-2 max-w-[300px] mx-auto text-center text-white bg-red-600 rounded-xl shadow-lg animate-fadeOut">
+                            <span>{errorMessage}</span>
+                        </div>
+                    )}
+
+                    <style jsx>{`
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        99% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+    .animate-fadeOut {
+        animation: fadeOut 4s ease forwards;
+    }
+`}</style>
                 </div>
             </div>
         </>
