@@ -2,7 +2,7 @@ import Web3 from 'web3';
 import { ABI_REGISTER } from './ABIs';
 import BigNumber from 'bignumber.js';
 
-const RAFFLE_ADDRESS = '0x2E654Fa56fBb77473C9D577126163dD5F04d5d8A';
+const RAFFLE_ADDRESS = '0x57688f84867FCD3ad25582c95FC6c095d16374A9';
 
 // Initialize Web3 with the given RPC URL
 const web3 = new Web3('https://api.zan.top/ftm-mainnet');
@@ -11,7 +11,7 @@ const contract = new web3.eth.Contract(ABI_REGISTER, RAFFLE_ADDRESS);
 // Get time left until raffle ends
 export const getTimeLeft = async () => {
   try {
-    const endTime = 1733011200;
+    const endTime = 1733529600;
     const now = Math.floor(Date.now() / 1000); // Current timestamp in seconds
 
     if (endTime < now) {
@@ -47,8 +47,7 @@ export const getTotalTickets = async () => {
 
     const balanceWei = await web3.eth.getBalance(RAFFLE_ADDRESS);
     const balanceEther = new BigNumber(web3.utils.fromWei(balanceWei, 'ether'));
-    const balancePlusFive = balanceEther.plus(5);
-    const balanceDividedByFive = balancePlusFive.dividedBy(5);
+    const balanceDividedByFive = balanceEther.dividedBy(5);
     return balanceDividedByFive;
   } catch (error) {
     console.error("Error fetching balance: ", error);

@@ -2,7 +2,7 @@ import Web3 from 'web3';
 import { ABI_REGISTER } from './ABIs';
 import BigNumber from 'bignumber.js';
 
-const RAFFLE_ADDRESS = '0x2E654Fa56fBb77473C9D577126163dD5F04d5d8A';
+const RAFFLE_ADDRESS = '0x57688f84867FCD3ad25582c95FC6c095d16374A9';
 
 const web3 = new Web3(window.ethereum);
 const contract = new web3.eth.Contract(ABI_REGISTER, RAFFLE_ADDRESS);
