@@ -115,13 +115,17 @@ const Presale = () => {
                         </Link>
 
                         <div className="mb-2">
-                            <h1 className="text-3xl font-bold dark:text-white text-black mb-1">
+                            {/* <h1 className="text-3xl font-bold dark:text-white text-black mb-1">
                                 Raffle
-                            </h1>
-                            <p className="mb-2 dark:text-white text-black">
-                            One ticket guarantees a minimum allocation in the phase one presale. The more tickets you have, the higher your chances are at increasing your allocation.{" "}
-                            </p>
-                            <span className="text-primary font-bold">ends in</span>:
+                            </h1> */}
+
+
+
+
+
+
+
+                            <span className="mb-2 dark:text-white text-black">ends in:</span>
                             <div className="flex gap-3">
                                 {/* Display time left */}
                                 {["days", "hours", "minutes", "seconds"].map((unit) => (
@@ -139,12 +143,37 @@ const Presale = () => {
                                 ))}
                             </div>
                         </div>
+                        
                         <p className="mb-2 dark:text-white text-black">
-                            One ticket costs 5 FTM
+
+                        <div className="relative group">
+  {/* Main Text */}
+  <p className="mb-2 text-primary font-bold cursor-pointer">
+    How to Participate
+  </p>
+
+  {/* Hidden Text (Revealed on Hover) */}
+  <div
+    className="absolute hidden group-hover:block bg-gray-900 text-white p-3 rounded-md mt-2 w-full z-10"
+    style={{ backgroundColor: "#000" }} /* Ensures full solid black */
+  >
+    <p>
+      1. Purchase a ticket to secure your spot in the phase one presale.<br />
+      2. Each ticket increases your allocation potential.<br />
+      3. Follow the on-screen instructions after ticket purchase.
+    </p>
+  </div>
+</div>
+                            
+<div className="flex items-center justify-center">
+  <span className="text-sm leading-4 opacity-75 text-center">
+    Enter ticket amount - 5 FTM = 1 ticket
+  </span>
+</div>
+
+                            
                         </p>
-                        <p className="mb-2 dark:text-white text-black">
-                            Enter ticket amount
-                        </p>
+          
                         <input
                             type="number"
                             id="ticketCount"
