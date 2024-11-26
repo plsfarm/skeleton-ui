@@ -119,7 +119,7 @@ const Presale = () => {
                                 Raffle
                             </h1>
                             <p className="mb-2 dark:text-white text-black">
-                                Join the raffle for your chance to win a whitelist spot!{" "}
+                            One ticket guarantees a minimum allocation in the phase one presale. The more tickets you have, the higher your chances are at increasing your allocation.{" "}
                             </p>
                             <span className="text-primary font-bold">ends in</span>:
                             <div className="flex gap-3">
