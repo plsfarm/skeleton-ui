@@ -19,13 +19,14 @@ const LandingHeaderTomb = () => {
     <>
       {!["/presale"].includes(pathname) && (
         <Link
-          to="/presale"
+           target="_blank"
+                to="https://zealy.io/cw/skeletonlabs"
           className=" text-white w-full text-sm flex justify-center py-1 cursor-pointer relative z-[200]"
           style={{
             backgroundImage: "linear-gradient(270deg,#214e82 25%,#506077 50%,#ec5409 75%,#ffc966)",
           }}
         >
-          Click here to pre register for presale
+          Complete tasks to secure a WL spot and earn exclusive rewards
         </Link>
       )}
       <header className={`wrapper absolute  left-0 ${pathname !== "/presale" ? "top-8 " : "top-0"} z-50 h-[95px] !justify-center py-5`}>
