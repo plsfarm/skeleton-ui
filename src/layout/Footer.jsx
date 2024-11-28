@@ -35,10 +35,10 @@ const earnItems = [
     //     title: 'Skeleton Money',
     //     link: '/skeleton-money'
     // },
-    {
-        title: 'Presale',
-        link: '/presale'
-    }
+    // {
+    //     title: 'Presale',
+    //     link: '/presale'
+    // }
 ]
 
 const Footer = () => {
