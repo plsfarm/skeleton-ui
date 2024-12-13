@@ -1,12 +1,13 @@
-import { Web3Button } from "@web3modal/react";
-import { useState, useEffect } from "react";
+
+import { useWeb3Modal, Web3Button } from "@web3modal/react";
+import { ArrowRight, ChevronUp } from "lucide-react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import Footer from "../../layout/Footer";
 import { useTheme } from "../../components/ThemeProvider";
-import { getTickets, raffle } from "./raffle";
-import { getTimeLeft, getTotalTickets } from "./rafflegetter";
+import LandingHeader from "../../layout/LandingHeader";
 
 const Presale = () => {
+    const connectWallet = useWeb3Modal();
     const themeContext = useTheme();
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
@@ -14,336 +15,156 @@ const Presale = () => {
         minutes: 0,
         seconds: 0,
     });
-    const [userTickets, setUserTickets] = useState(0);
-    const [ticketInput, setTicketInput] = useState(1);
-    const [loading, setLoading] = useState(false);
-    const [totalTickets, setTotalTickets] = useState(0)
-    const [isConnected, setIsConnected] = useState(false);
-    const [errorMessage, setErrorMessage] = useState("");
+    const [selected, setSelected] = useState("FTM");
 
-    useEffect(() => {
-        const checkConnection = async () => {
-            if (window.ethereum) {
-                try {
-                    // Check if any accounts are connected
-                    const accounts = await window.ethereum.request({ method: "eth_accounts" });
-                    setIsConnected(accounts.length > 0);
-                } catch (error) {
-                    console.error("Error checking connection: ", error);
-                }
-            } else {
-                setIsConnected(false);
-            }
-        };
-
-        checkConnection();
-
-        // Listen for wallet connection changes
-        if (window.ethereum) {
-            const handleAccountsChanged = (accounts) => {
-                setIsConnected(accounts.length > 0);
-            };
-
-            window.ethereum.on("accountsChanged", handleAccountsChanged);
-
-            return () => {
-                window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
-            };
-        }
-    }, []);
-
-
-
-    // Fetch time left
-    useEffect(() => {
-        const updateTimeLeft = async () => {
-            try {
-                const remainingTime = await getTimeLeft();
-                const days = Math.floor(remainingTime.dividedBy(86400)); // Seconds in a day
-                const hours = Math.floor(remainingTime.mod(86400).dividedBy(3600)); // Seconds in an hour
-                const minutes = Math.floor(remainingTime.mod(3600).dividedBy(60)); // Seconds in a minute
-                const seconds = Math.floor(remainingTime.mod(60));
-                setTimeLeft({ days, hours, minutes, seconds });
-            } catch (error) {
-                console.error("Failed to fetch time left: ", error);
-            }
-        };
-
-        updateTimeLeft();
-        const timer = setInterval(updateTimeLeft, 1000); // Update every second
-        return () => clearInterval(timer);
-    }, []);
-
-    useEffect(() => {
-        const fetchTotalTickets = async () => {
-            try {
-                const total = await getTotalTickets();
-                setTotalTickets(total.toNumber());
-            } catch (error) {
-                console.error("Failed to fetch total tickets: ", error);
-            }
-        };
-        fetchTotalTickets();
-        const interval = setInterval(fetchTotalTickets, 5000); // Update every 5 seconds
-        return () => clearInterval(interval);
-    }, []);
-
-    // Fetch user's tickets
-    useEffect(() => {
-        const fetchTickets = async () => {
-            try {
-                const tickets = await getTickets();
-                setUserTickets(tickets.toNumber());
-            } catch (error) {
-                console.error("Failed to fetch user tickets: ", error);
-            }
-        };
-        fetchTickets();
-        const interval = setInterval(fetchTickets, 5000);
-        return () => clearInterval(interval);
-    }, []);
-
-    // Handle ticket purchase
-    const handleBuyTickets = async () => {
-        setLoading(true);
-        try {
-            const result = await raffle(ticketInput);
-            if (result.success) {
-                alert("Tickets purchased successfully!");
-                const tickets = await getTickets(); // Update user's tickets
-                setUserTickets(tickets.toNumber());
-            } else {
-                setErrorMessage("Purchase failed: " + result.error);
-            }
-        } catch (error) {
-            setErrorMessage("Error: " + error.message);
-        }
-        setLoading(false);
-    };
+    const paymentMethods = [
+        { id: 'FTM', label: 'FTM', icon: <img src='/ftm.png' className="size-7" /> },
+        { id: "SONIC", label: "SONIC", icon: <img src='/sonic.png' className="size-7" /> },
+    ];
 
     return (
         <>
-            <Link
-                target="_blank"
-                to="https://zealy.io/cw/skeletonlabs"
-                className="bg-[#111827] text-white w-full flex justify-center py-1 cursor-pointer relative z-[100] text-shadow-pulse"
-            >
-                Complete tasks to secure a WL spot and earn exclusive rewards
-            </Link>
+            <div className="relative z-[200]">
+                <LandingHeader />
+            </div>
+            <div className="relative bg-black">
+                {/* <img src="/presale_bg.jpg" className="w-full hidden sm:block sm:h-screen object-cover absolute" /> */}
 
+                <div className="relative z-50 flex flex-1 flex-col items-center w-full top-14 md:top-0 min-h-screen justify-center pb-20">
+                    <div className="mx-auto box m-auto w-[99%] lg:w-[50%] max-w-[700px] px-3  gap-3 space-y-5  rounded-lg my-14 dark:!bg-[#161625] backdrop-blur-sm dark:!text-white !text-black !bg-gray-200 !shadow-[0_0_15px_rgba(255,255,255,0.9),0_0_60px_rgba(255,255,255,0.7),0_0_40px_rgba(255,255,255,0.5)] lg:mt-28 lg:mb-20">
+                        <div className="grid grid-cols-3 gap-4">
+                            <div className="col-span-1">
+                                <Link
+                                    to="/"
+                                    className=""
+                                >
+                                    <img src="/skeleton-anime.gif" alt="logo" className="mt-2 w-28 hidden dark:block " />
+                                    <img src="/skeleton-anime-white.gif" alt="logo" className="mt-2 w-28 dark:hidden " />
+                                    <div className="text-lg leading-6 -mt-5"><span className="font-bold">Skeleton Money</span> Sonic Presale</div>
+                                </Link>
+                            </div>
+                            <div className="col-span-2">
+                                <div className="flex gap-3">
+                                    <div className="flex aspect-square basis-[calc(25%-0.5625rem)] flex-col items-center justify-center rounded-md dark:bg-darklight  bg-gray-500 dark:bg-opacity-100 bg-opacity-10 dark:text-white text-black">
+                                        <h2 className="text-3xl font-bold leading-7">{timeLeft.days}</h2>
+                                        <span className="text-sm leading-4 opacity-75">
+                                            {timeLeft.days == 1 ? "Day" : "Days"}
+                                        </span>
+                                    </div>
+                                    <div className="flex aspect-square basis-[calc(25%-0.5625rem)] flex-col items-center justify-center rounded-md dark:bg-darklight bg-gray-500 dark:bg-opacity-100 bg-opacity-10 dark:text-white text-black">
+                                        <h2 className="text-3xl font-bold leading-7">{timeLeft.hours}</h2>
+                                        <span className="text-sm leading-4 opacity-75">
+                                            {timeLeft.hours == 1 ? "Hour" : "Hours"}
+                                        </span>
+                                    </div>
 
-            <style jsx>{`
-    @keyframes pulse {
-        0% {
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.7);
-        }
-        50% {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 1), 0 0 15px rgba(255, 255, 255, 1), 0 0 20px rgba(255, 255, 255, 1);
-        }
-        100% {
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.7);
-        }
-    }
-
-    .text-shadow-pulse {
-        animation: pulse 4s infinite;
-    }
-`}</style>
-
-            <div className="relative md:max-h-screen md:overflow-hidden">
-                <div className="flex justify-end items-center px-10 py-3 md:absolute right-0 z-30">
-                    <Link
-                        to="https://skeleton-labs.gitbook.io/skeleton-money"
-                        target="blank"
-                        className="flex items-center justify-start transition-all duration-300 hover:bg-black hover:bg-opacity-[0.04] mr-5"
-                    >
-                        <p className={`ml-2 text-sm font-medium md:text-white`}>Docs</p>
-                    </Link>
-                    <div className="wallet">
-                        <Web3Button icon="hide" label="Connect" />
-                    </div>
-                </div>
-
-
-
-                <img
-                    src="/presale.jpg"
-                    className="w-full hidden sm:block sm:h-screen object-cover"
-                />
-
-
-                <div className="absolute flex flex-1 flex-col items-center w-full top-14 md:top-0 h-screen justify-center">
-                    <div className="mx-auto box m-auto min-w-[300px] max-w-[400px] px-3 gap-3 space-y-5 rounded-lg my-14 dark:!bg-gray-900 !bg-gray-200">
-
-
-                        <Link
-                            to="/"
-                            className="flex flex-col justify-center items-center gap-3 text-center text-5xl font-bold text-black md:flex-row"
-                        >
-                            <img
-                                src="/presale-logo.png"
-                                alt="logo"
-                                className="mt-2 w-56 hidden dark:block"
-                            />
-                            <img
-                                src="/presale-logo-black.png"
-                                alt="logo"
-                                className="mt-2 w-56 dark:hidden"
-                            />
-                        </Link>
-
+                                    <div className="flex aspect-square basis-[calc(25%-0.5625rem)] flex-col items-center justify-center rounded-md dark:bg-darklight bg-gray-500 dark:bg-opacity-100 bg-opacity-10 dark:text-white text-black">
+                                        <h2 className="text-3xl font-bold leading-7">
+                                            {timeLeft.minutes}
+                                        </h2>
+                                        <span className="text-sm leading-4 opacity-75">
+                                            {timeLeft.minutes == 1 ? "Minute" : "Minutes"}
+                                        </span>
+                                    </div>
+                                    <div className="flex aspect-square basis-[calc(25%-0.5625rem)] flex-col items-center justify-center rounded-md dark:bg-darklight bg-gray-500 dark:bg-opacity-100 bg-opacity-10 dark:text-white text-black">
+                                        <h2 className="text-3xl font-bold leading-7">
+                                            {timeLeft.seconds}
+                                        </h2>
+                                        <span className="text-sm leading-4 opacity-75">
+                                            {timeLeft.seconds == 1 ? "Second" : "Seconds"}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
                         <div className="mb-2">
-                            {/* <h1 className="text-3xl font-bold dark:text-white text-black mb-1">
-                                Raffle
-                            </h1> */}
 
+                            <div className="flex gap-2 items-center">
+                                <div className="text-2xl">Buy Bones Coin</div>
+                                <div className="w-12 h-12 p-2 rounded-full overflow-hidden border-4 border-gray-300 shadow-lg hidden dark:block">
+                                    <img src="/skull-tomb.png" className="w-14 object-cover hidden dark:block" alt="" />
+                                </div>
+                                <div className="w-12 h-12 p-2 rounded-full overflow-hidden border-4 border-gray-400 shadow-lg dark:hidden">
+                                    <img src="/skull-tomb-black.png" className="w-14 object-cover dark:hidden" alt="" />
+                                </div>
 
+                            </div>
+                            <div className="flex gap-1 items-center">
+                                <div className="text-3xl my-2">Skeleton money total raised</div>
+                                <div className="text-green-500 -mt-3 font-bold"><ChevronUp /></div>
+                                <div className="text-3xl text-green-500 font-bold">22.4%</div>
+                            </div>
 
-
-
-
-
-                            <span className="mb-2 dark:text-white text-black">ends in:</span>
-                            <div className="flex gap-3">
-                                {/* Display time left */}
-                                {["days", "hours", "minutes", "seconds"].map((unit) => (
-                                    <div
-                                        key={unit}
-                                        className="flex aspect-square basis-[calc(25%-0.5625rem)] flex-col items-center justify-center rounded-md dark:bg-darklight bg-gray-500 dark:bg-opacity-100 bg-opacity-10 dark:text-white text-black"
-                                    >
-                                        <h2 className="text-3xl font-bold leading-7">
-                                            {timeLeft[unit]}
-                                        </h2>
-                                        <span className="text-sm leading-4 opacity-75">
-                                            {timeLeft[unit] === 1 ? unit.slice(0, -1) : unit}
-                                        </span>
-                                    </div>
-                                ))}
+                            <div className="flex flex-col items-center space-y-4">
+                                <h2 className=" text-lg">Select a payment method</h2>
+                                <div className="grid grid-cols-5 flex-wrap gap-4">
+                                    {paymentMethods.map((method) => (
+                                        <button
+                                            key={method.id}
+                                            className={`flex items-center justify-center px-4 py-3 rounded-lg border ${selected === method.id
+                                                ? " border-gray-400 dark:border-gray-600 bg-gray-400 dark:bg-gray-900"
+                                                : " border-gray-400 dark:border-gray-600 bg-gray-300 dark:bg-gray-800"
+                                                }`}
+                                            onClick={() => setSelected(method.id)}
+                                        >
+                                            <div>{method.icon}</div>
+                                            <span className="ml-2">{method.label}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="flex items-center justify-between bg-gray-300 dark:bg-slate-800  rounded-lg p-4 w-full shadow-md mt-3">
+                                <div className="flex flex-col">
+                                    <span className="text-xs text-gray-500">{selected}</span>
+                                    <span className="text-lg font-medium">
+                                        <input className="w-[50px] bg-transparent border-none  focus:outline-none" type="text" placeholder="0.0" />
+                                    </span>
+                                </div>
+                                <div className="text-xl text-gray-400">
+                                    <ArrowRight className="text-gray-400" />
+                                </div>
+                                <div className="flex flex-col items-end">
+                                    <span className="text-lg font-medium">0</span>
+                                    <span className="text-xs text-gray-500">Bones</span>
+                                </div>
                             </div>
                         </div>
 
-                        <p className="mb-2 dark:text-white text-black">
-
-                            <div className="relative group">
-                                {/* Main Text */}
-                                <p className="mb-2 text-primary font-bold cursor-pointer">
-                                    How to Participate
-                                </p>
-
-                                {/* Hidden Text (Revealed on Hover) */}
-                                <div
-                                    className="absolute hidden group-hover:block bg-gray-900 text-white p-3 rounded-md mt-2 w-full z-10"
-                                    style={{ backgroundColor: "#000" }} /* Ensures full solid black */
-                                >
-                                    <p>
-                                        <br /> Purchase a ticket to secure your spot in the phase one presale.<br />   <br />
-                                        Up for grabs in the unique Skeleton raffle system: Skeleton Money genesis NFT's, <br /><br />2000 FTM pre-filled allocation spots, and, of course, the coveted Skeleton Champion Whitelist allocations.
-                                        <br />
-                                        <br />
-                                        Each ticket increases your allocation potential.<br />
-
-                                    </p>
-                                </div>
-                            </div>
-
-
-                            <span className="text-sm leading-4 opacity-75 text-center">
-                                Enter ticket amount - 1 ticket = 5 FTM
-                            </span>
-
-
-
-                        </p>
-
-                        <input
-                            type="number"
-                            id="ticketCount"
-                            name="ticketCount"
-                            min="1"
-                            value={ticketInput}
-                            onChange={(e) => setTicketInput(Number(e.target.value))}
-                            className="mt-1 w-full max-w-md rounded-xl border-gray-300 shadow-sm focus:ring-primary focus:border-primary dark:border-gray-700 dark:bg-gray-800 dark:text-white p-3 h-14 text-center"
-                            placeholder="Enter number of tickets"
-                        />
                         <button
-                            onClick={handleBuyTickets}
-                            // disabled={true}
-                            disabled={!isConnected || loading}
-                            className={`mt-2 h-11 w-full rounded-xl text-black p-2 font-[500] shadow-lg transition-all duration-300 
-        ${loading || !isConnected ? "bg-gray-400 cursor-not-allowed opacity-50" : "bg-primary"}`}
+                            className={`mt-2 h-11 w-full rhSlider-btn rounded-xl bg-primary text-white p-2 font-[500] shadow-lg transition-all duration-300 ${false ? "cursor-not-allowed opacity-50" : ""
+                                }`}
+                            onClick={connectWallet.open}
                         >
-                            {loading ? "Processing..." : "Buy Tickets"}
+                            Connect Wallet
                         </button>
-
                         <div className="flex flex-col gap-3">
                             <div className="flex flex-col gap-3 sm:flex-row">
-                                <div className="flex flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
-                                    <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold">
-                                        {userTickets}
+                                <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
+                                    <h3
+                                        className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold"
+                                    >
+                                        Not registered
                                     </h3>
-                                    <span className="text-sm dark:text-white/70 text-black/70">
-                                        Your Tickets
-                                    </span>
                                 </div>
-
-                                {/* Total Tickets Box */}
-                                <div className="flex flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
-                                    <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold">
-                                        {totalTickets}
+                                <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
+                                    <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold leading-5">
+                                        0
                                     </h3>
                                     <span className="text-sm dark:text-white/70 text-black/70">
-                                        Total Tickets
+                                        Registered USERS
                                     </span>
                                 </div>
                             </div>
 
+                            <div className="flex flex-col gap-3 sm:flex-row"></div>
                         </div>
-
-                        <div className="flex items-center justify-center gap-6 mt-3">
-                            <a href="https://twitter.com/skeletonslab" target="blank">
-                                <img src="/x.png" className={`w-5 object-contain dark:block hidden`} alt="" />
-                                <img src="/x-black.png" className={`w-5 object-contain dark:hidden block`} alt="" />
-                            </a>
-                            <a href="https://t.me/SkeletonLabs" target="blank">
-
-                                <img src="/telegram.svg" className={`w-5 object-contain dark:block hidden `} alt="" />
-                                <img src="/telegram-black.svg" className={`w-5 object-contain dark:hidden block `} alt="" />
-                            </a>
-                            <a href="https://zealy.io/cw/skeletonlabs" target="blank">
-                                <img src="/zealy.png" className={`w-5 object-contain dark:block hidden `} alt="" />
-                                <img src="/zealy.png" className={`w-5 object-contain dark:hidden block `} alt="" />
-                            </a>
-                        </div>
-
 
                     </div>
-                    {errorMessage && (
-                        <div className="mt-4 p-2 max-w-[300px] mx-auto text-center text-white bg-red-600 rounded-xl shadow-lg animate-fadeOut">
-                            <span>{errorMessage}</span>
-                        </div>
-                    )}
-
-                    <style jsx>{`
-    @keyframes fadeOut {
-        0% {
-            opacity: 1;
-        }
-        99% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-
-    .animate-fadeOut {
-        animation: fadeOut 4s ease forwards;
-    }
-`}</style>
                 </div>
             </div>
+
         </>
     );
 };
