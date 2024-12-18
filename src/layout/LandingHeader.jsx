@@ -49,7 +49,7 @@ const LandingHeaderTomb = () => {
             >
               <HoverCard openDelay={200} className="!bg-dark">
                 <HoverCardTrigger className="text-black dark:text-white font-medium items-center gap-2 cursor-pointer hidden lg:flex">
-                  Earn <DownOutlined className="size-3" />
+                  Socials <DownOutlined className="size-3" />
                 </HoverCardTrigger>
                 <HoverCardContent className="rounded-xl w-[500px] dark:!bg-dark !py-5 !px-5">
                   <div className="flex gap-2">
