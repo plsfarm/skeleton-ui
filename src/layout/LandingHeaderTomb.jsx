@@ -55,23 +55,24 @@ const LandingHeaderTomb = () => {
                 <HoverCardContent className="rounded-xl w-[500px] dark:!bg-dark !py-5 !px-5">
                   <div className="flex gap-2">
                     <div className="w-[200px] flex flex-col justify-center">
-                      <div className=" top-0 text-xs mb-2">Coming soon</div>
-                      <div className="flex items-center gap-2 relative">
+                      {/* <div className=" top-0 text-xs mb-2">Coming soon</div> */}
+                      {/* <div className="flex items-center gap-2 relative">
                         <img src="/skull-tomb.png" className="w-14 dark:block hidden" alt="" />
                         <img src="/skull-tomb-black.png" className="w-14 dark:hidden block" alt="" />
                         <div>
                           <div className="text-xs dark:text-white text-black">Skeleton Money</div>
                         </div>
+                      </div> */}
+                      <div>
+                        {/* <Divider className="bg-white/20 my-5" /> */}
                       </div>
                       <div>
-                        <Divider className="bg-white/20 my-5" />
-                      </div>
-                      <div>
-                        <Link to="/" className="w-full rounded">
+                        <Link to="/presale" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
                             {" "}
-                            <Atom />
-                            Home
+                            <img src="/skull-tomb.png" className="w-14 dark:block hidden" alt="" />
+                        <img src="/skull-tomb-black.png" className="w-14 dark:hidden block" alt="" />
+                            Presale
                           </div>
                         </Link>
                       </div>
