@@ -19,7 +19,7 @@ const Presale = () => {
         minutes: 0,
         seconds: 0,
     });
-    const [selected, setSelected] = useState("FTM");
+    const [selected, setSelected] = useState("SONIC");
     const [data, setData] = useState({
         FtmContributed: 0,
         FcfsStartTime: 0,
