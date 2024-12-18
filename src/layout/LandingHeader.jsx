@@ -37,12 +37,19 @@ const LandingHeaderTomb = () => {
               NOT LIVE IN TEST
             </div> */}
             <Link to="/">
-              {
-                <>
-                  <img src="/skeleton-money-black.png" className="w-[320px] object-contain dark:hidden" alt="" />
-                  <img src="/skeleton-money-white.png" className="w-[320px] object-contain hidden dark:block" alt="" />
-                </>
-              }
+            <div className="flex justify-center items-center">
+  <img 
+    src="/skeleton-money-black.png" 
+    className="w-[320px] h-auto max-h-[50px] object-contain dark:hidden" 
+    alt="" 
+  />
+  <img 
+    src="/skeleton-money-white.png" 
+    className="w-[320px] h-auto max-h-[50px] object-contain hidden dark:block" 
+    alt="" 
+  />
+</div>
+
             </Link>
             <nav
               className={` top-0 z-[91] flex items-center justify-start gap-6  bg-transparent static flex-row  ${headerToggle ? "right-0" : "-right-full"} h-full w-full overflow-y-auto  transition-all  duration-300 lg:h-auto lg:overflow-visible p-0`}
