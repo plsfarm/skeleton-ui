@@ -53,7 +53,7 @@ const LandingHeaderTomb = () => {
                 </HoverCardTrigger>
                 <HoverCardContent className="rounded-xl w-[500px] dark:!bg-dark !py-5 !px-5">
                   <div className="flex gap-2">
-                    <div className="w-[200px] flex flex-col justify-center">
+                    {/* <div className="w-[200px] flex flex-col justify-center">
                       <div>
                         <Link to="/liquidity" className="w-full rounded">
                           <div className="w-full rounded py-3 px-3 hover:bg-gray-200 dark:hover:bg-[#15151a] flex gap-2">
@@ -80,7 +80,7 @@ const LandingHeaderTomb = () => {
                           </div>
                         </Link>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="bg-gray-300 dark:bg-[#15151a] w-[300px] rounded p-4">
                       <div className="text-lg dark:text-white text-black">Socials</div>
                       <div className="grid grid-cols-2 gap-2 mt-3">

@@ -1,66 +1,74 @@
 import { ABI_PRESALE } from "./ABIs";
-import { fantom, hardhat } from "@wagmi/core/chains";
 import { formatEther } from "viem";
 import {
-  multicall,
   waitForTransaction,
   prepareWriteContract,
   readContract,
 } from "@wagmi/core";
 
-const chain = fantom;
-// const chain = hardhat;
+// Sonic Chain Definition
+const chain = {
+  id: 146,
+  name: "Sonic",
+  network: "sonic",
+  nativeCurrency: {
+    name: "Sonic Token",
+    symbol: "S",
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: { http: ["https://rpc.soniclabs.com"] },
+    public: { http: ["https://rpc.soniclabs.com"] },
+  },
+  blockExplorers: {
+    default: { name: "SonicLabs Explorer", url: "https://explorer.soniclabs.com" },
+  },
+};
 
-const PRESALE_ADDRESS = "0x8E99cCd00339B21DD7b5b53986b23dbd81a49877";
+const PRESALE_ADDRESS = "0x29c1FB99406Ac3b4717f94acA647E8C7E9C00635";
 
 const presaleContract = {
   address: PRESALE_ADDRESS,
   abi: ABI_PRESALE,
 };
 
+// Ensure Wallet is on Correct Chain
 const setChain = async (walletClient) => {
   if (walletClient.chain.id !== chain.id) {
     await walletClient.switchChain(chain);
   }
 };
 
-export const getData = async (walletClient, publicClient) => {
+// Fetch Presale Data
+export const getData = async (walletClient) => {
   try {
-    const data = await multicall({
-      contracts: [
-        {
-          ...presaleContract,
-          functionName: "users",
-          args: [walletClient?.account.address],
-        },
-        {
-          ...presaleContract,
-          functionName: "totalContribution",
-        },
-        {
-          ...presaleContract,
-          functionName: "walletMax",
-        },
-        {
-          ...presaleContract,
-          functionName: "walletMin",
-        },
-        {
-          ...presaleContract,
-          functionName: "presaleStartTime",
-        },
-      ],
+    await setChain(walletClient);
+
+    const usersData = await readContract({
+      ...presaleContract,
+      functionName: "users",
+      args: [walletClient?.account.address],
     });
 
-    if (!data || data.length === 0) throw new Error("No data returned from contract");
+    const totalContribution = await readContract({
+      ...presaleContract,
+      functionName: "totalContribution",
+    });
 
-    const [
-      usersData,
-      TotalContribution,
-      WalletMax,
-      WalletMin,
-      PresaleStartTime,
-    ] = data.map((v) => v?.result ?? null);
+    const walletMax = await readContract({
+      ...presaleContract,
+      functionName: "walletMax",
+    });
+
+    const walletMin = await readContract({
+      ...presaleContract,
+      functionName: "walletMin",
+    });
+
+    const presaleStartTime = await readContract({
+      ...presaleContract,
+      functionName: "presaleStartTime",
+    });
 
     const [ftmContributed, bonesBought, preRegistered, once] = usersData || [0, 0, false, false];
 
@@ -69,10 +77,10 @@ export const getData = async (walletClient, publicClient) => {
       preRegistered: !!preRegistered,
       bonesBought: bonesBought ? formatEther(bonesBought) : "0",
       ftmContributed: ftmContributed ? formatEther(ftmContributed) : "0",
-      walletMax: WalletMax ? formatEther(WalletMax) : "0",
-      walletMin: WalletMin ? formatEther(WalletMin) : "0",
-      totalContribution: TotalContribution ? formatEther(TotalContribution) : "0",
-      presaleStartTime: PresaleStartTime ? parseInt(PresaleStartTime.toString()) : 0,
+      walletMax: walletMax ? formatEther(walletMax) : "0",
+      walletMin: walletMin ? formatEther(walletMin) : "0",
+      totalContribution: totalContribution ? formatEther(totalContribution) : "0",
+      presaleStartTime: presaleStartTime ? parseInt(presaleStartTime.toString()) : 0,
     };
   } catch (error) {
     console.error("Error fetching presale data: ", error);
@@ -89,6 +97,7 @@ export const getData = async (walletClient, publicClient) => {
   }
 };
 
+// Contract Interaction for Buy
 export const callBuy = async (walletClient, value) => {
   try {
     await setChain(walletClient);
@@ -113,6 +122,7 @@ export const callBuy = async (walletClient, value) => {
 
     const hash = await walletClient.writeContract(request);
     await waitForTransaction({ chainId: chain.id, hash });
+
     return { success: true };
   } catch (err) {
     console.error("Error executing buy: ", err);

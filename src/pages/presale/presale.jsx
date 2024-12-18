@@ -158,7 +158,7 @@ const Presale = () => {
 
     const Totalcontributed = formatSmall(data.totalContribution, "0,0.[00]");
     const contributed = formatSmall(data.FtmContributed, "0,0.[00]");
-    const estimatedCOWTIP = formatSmall(data.bonesBought, "0,0.[00]");
+    const estimatedBones = formatSmall(data.bonesBought, "0,0.[00]");
     const WalletMax = formatSmall(data.walletMax, "0,0.[00]");
     const WalletMin = formatSmall(data.walletMin, "0,0.[00]");
     const presaleExpired = isPresaleExpired();
@@ -201,7 +201,7 @@ const Presale = () => {
                         {/* Presale Info */}
                         <div className="mb-2">
                             <div className="flex gap-2 items-center">
-                                <div className="text-2xl">Buy Bones</div>
+                                <div className="text-2xl">Min 500 S - Max 5,000 S</div>
                                 <div className="w-12 h-12 p-2 rounded-full overflow-hidden border-4 border-gray-300 shadow-lg hidden dark:block">
                                     <img src="/skull-tomb.png" className="w-14 object-cover hidden dark:block" alt="" />
                                 </div>
@@ -273,7 +273,7 @@ const Presale = () => {
                                 </div>
                                 <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
                                     <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold leading-5">
-                                        0
+                                        {Totalcontributed}
                                     </h3>
                                     <span className="text-sm dark:text-white/70 text-black/70">Total Raised</span>
                                 </div>
@@ -282,13 +282,13 @@ const Presale = () => {
                             <div className="flex flex-col gap-3 sm:flex-row">
                                 <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
                                     <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold leading-5">
-                                        0
+                                        {estimatedBones}
                                     </h3>
                                     <span className="text-sm dark:text-white/70 text-black/70">Your Contribution</span>
                                 </div>
                                 <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
                                     <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold leading-5">
-                                        0
+                                       {estimatedBones}
                                     </h3>
                                     <span className="text-sm dark:text-white/70 text-black/70">Expected Bones</span>
                                 </div>

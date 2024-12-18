@@ -6,22 +6,29 @@ import { BrowserRouter } from "react-router-dom";
 import { EthereumClient, w3mConnectors, w3mProvider } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/react";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
-import { fantom } from "wagmi/chains";
 import ContextProvider from "./utils/Context";
 import { ConfigProvider } from "antd";
 
-const fantomFork = {
-  ...fantom,
-  id: 31337,
+
+const sonic = {
+  id: 146,
+  name: "Sonic",
+  network: "sonic",
+  nativeCurrency: {
+    name: "Sonic Token",
+    symbol: "S",
+    decimals: 18,
+  },
   rpcUrls: {
-    default: { http: ["http://localhost:8545"] },
-    public: { http: ["http://localhost:8545"] },
+    default: { http: ["https://rpc.soniclabs.com"] },
+    public: { http: ["https://rpc.soniclabs.com"] },
+  },
+  blockExplorers: {
+    default: { name: "SonicLabs Explorer", url: "https://explorer.soniclabs.com" },
   },
 };
 
-const chains = [fantom];
-// const chains = [fantomchain, fantomFork];
-
+const chains = [sonic];
 const projectId = "6d3445e93cf2d607c5cffdafc14e5408";
 
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
@@ -74,8 +81,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           "--w3m-accent-fill-color": "white",
           "--w3m-button-border-radius": "20px",
         }}
-        defaultChain={fantom}
-      //  defaultChain={fantomFork}
+        defaultChain={sonic}
       />
     </BrowserRouter>
   </React.StrictMode>
