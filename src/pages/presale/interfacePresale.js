@@ -25,7 +25,7 @@ const chain = {
   },
 };
 
-const PRESALE_ADDRESS = "0x1bAe0b8D17f3006fe23eAC72FCcd9Ab8CAC38187";
+const PRESALE_ADDRESS = "0xE82baD342643EEC1c572b8b74a1ab56BE49505A8";
 
 const presaleContract = {
   address: PRESALE_ADDRESS,
