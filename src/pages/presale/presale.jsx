@@ -261,7 +261,7 @@ const Presale = () => {
                         <button
                             className={`mt-2 h-11 w-full rhSlider-btn rounded-xl bg-primary text-white p-2 font-[500] shadow-lg transition-all duration-300 ${false ? "cursor-not-allowed opacity-50" : ""}`}
                             onClick={handleBuyClick}
-                            disabled={true}
+                            disabled={false}
                         >
                             Buy
                         </button>
