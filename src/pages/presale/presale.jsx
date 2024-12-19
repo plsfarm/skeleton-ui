@@ -200,8 +200,10 @@ const Presale = () => {
 
                         {/* Presale Info */}
                         <div className="mb-2">
+                        <div className="text-2xl">Hardcap - 150,000 S</div>
                             <div className="flex gap-2 items-center">
-                                <div className="text-2xl">Min 500 S - Max 5,000 S</div>
+                            
+                                <div className="text-2xl">Min 100 S - Max 5,000 S</div>
                                 <div className="w-12 h-12 p-2 rounded-full overflow-hidden border-4 border-gray-300 shadow-lg hidden dark:block">
                                     <img src="/skull-tomb.png" className="w-14 object-cover hidden dark:block" alt="" />
                                 </div>
