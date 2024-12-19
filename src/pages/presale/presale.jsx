@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useTheme } from "../../components/ThemeProvider";
 import LandingHeader from "../../layout/LandingHeader";
 import React, { useRef, useEffect, useState } from "react";
-import { getData, callBuy } from "./interfacePresale.js";
+import { getData, callBuy, getContribution } from "./interfacePresale.js";
 import { usePublicClient, useWalletClient } from "wagmi";
 import { parseUnits } from "viem";
 import { formatSmall } from "../../utils/Helper.js";
@@ -43,7 +43,7 @@ const Presale = () => {
     const intervalTime = useRef();
     const [amount, setAmount] = useState(0);
     const [userInput, setUserInput] = useState("");
-
+    const [totalContributionNew, setTotalContribution] = useState(0);
 
     const handleChange = (event) => {
         setUserInput(event.target.value);
@@ -132,6 +132,11 @@ const Presale = () => {
             try {
                 const result = await getData(walletClient, publicClient);
                 console.log(result);
+                const initialContribution = await getContribution();
+                console.log("new total contribution", initialContribution);
+        
+                // Extract the value properly
+                setTotalContribution(initialContribution.totalContribution || 0);
                 setData(result);
                 startTimer(result.presaleStartTime); // Use fetched presaleStartTime here
                 console.log("startTime", result.presaleStartTime); // Log the fetched startTime
@@ -275,7 +280,7 @@ const Presale = () => {
                                 </div>
                                 <div className="flex min-w-0 flex-1 flex-col items-center justify-center rounded-lg bg-primary/20 p-4 text-center dark:text-white text-black">
                                     <h3 className="w-full overflow-hidden text-ellipsis whitespace-nowrap text-xl font-bold leading-5">
-                                        {Totalcontributed}
+                                        {totalContributionNew}
                                     </h3>
                                     <span className="text-sm dark:text-white/70 text-black/70">Total Raised</span>
                                 </div>

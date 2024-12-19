@@ -39,6 +39,26 @@ const setChain = async (walletClient) => {
   }
 };
 
+// Fetch Total Contribution
+export const getContribution = async () => {
+  try {
+    const totalContribution = await readContract({
+      address: PRESALE_ADDRESS,
+      abi: ABI_PRESALE,
+      functionName: "totalContribution",
+    });
+
+    return {
+      totalContribution: totalContribution ? formatEther(totalContribution) : "0",
+    };
+  } catch (error) {
+    console.error("Error fetching total contribution: ", error);
+    return {
+      totalContribution: "0",
+    };
+  }
+};
+
 // Fetch Presale Data
 export const getData = async (walletClient) => {
   try {
